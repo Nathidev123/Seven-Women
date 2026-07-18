@@ -1,0 +1,536 @@
+/* ==================================================
+   PeaceInitiative.css
+   ================================================== */
+
+.peace-page{
+    width:100%;
+    overflow:hidden;
+    background:#fafafa;
+}
+
+/* ==================================================
+   HERO
+   ================================================== */
+
+.peace-hero{
+
+    min-height:82vh;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:70px;
+
+    padding:90px 8%;
+
+}
+
+.section-tag{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:#f3f4f6;
+
+    color:#b22222;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+}
+
+.peace-hero h1{
+
+    font-size:3.8rem;
+
+    line-height:1.1;
+
+    color:#171717;
+
+    margin:22px 0;
+
+    letter-spacing:-1.5px;
+
+}
+
+.peace-hero p{
+
+    font-size:1.08rem;
+
+    line-height:1.9;
+
+    color:#616161;
+
+    max-width:620px;
+
+}
+
+.peace-button{
+
+    margin-top:35px;
+
+    padding:16px 34px;
+
+    background:#111111;
+
+    color:white;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.peace-button:hover{
+
+    background:#b22222;
+
+    transform:translateY(-3px);
+
+}
+
+.peace-image{
+
+    width:100%;
+
+    height:480px;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.12);
+
+}
+
+.peace-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s ease;
+
+}
+
+.peace-image:hover img{
+
+    transform:scale(1.04);
+
+}
+
+.image-placeholder{
+
+    height:480px;
+
+    background:#ececec;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#777;
+
+    font-size:1.2rem;
+
+}
+
+/* ==================================================
+   MEMORIAL SECTION
+   ================================================== */
+
+.memorial-section{
+
+    padding:110px 8%;
+
+    background:#ffffff;
+
+}
+
+.section-heading{
+
+    max-width:720px;
+
+    margin:0 auto 60px;
+
+    text-align:center;
+
+}
+
+.section-heading h2{
+
+    font-size:2.8rem;
+
+    color:#171717;
+
+    margin-bottom:18px;
+
+}
+
+.section-heading p{
+
+    color:#666;
+
+    line-height:1.9;
+
+}
+
+/* ==================================================
+   MEMORY GRID
+   ================================================== */
+
+.memory-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+.memory-card{
+
+    background:#ffffff;
+
+    padding:40px 30px;
+
+    border-radius:24px;
+
+    text-align:center;
+
+    border:1px solid #ececec;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:all .35s ease;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.05);
+
+}
+
+.memory-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:#b22222;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.35s;
+
+}
+
+.memory-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.memory-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+.memory-card span{
+
+    display:block;
+
+    font-size:3rem;
+
+    color:#bdbdbd;
+
+    margin-bottom:18px;
+
+    transition:.3s;
+
+}
+
+.memory-card:hover span{
+
+    color:#2e7d32;
+
+    transform:scale(1.08);
+
+}
+
+.memory-card h3{
+
+    font-size:1.3rem;
+
+    color:#171717;
+
+    margin-bottom:18px;
+
+}
+
+.memory-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+/* ==================================================
+   PURPOSE
+   ================================================== */
+
+.purpose-section{
+
+    padding:120px 8%;
+
+    display:flex;
+
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+.purpose-content{
+
+    max-width:850px;
+
+}
+
+.purpose-content h2{
+
+    font-size:2.7rem;
+
+    color:#171717;
+
+    margin-bottom:25px;
+
+}
+
+.purpose-content p{
+
+    color:#666;
+
+    line-height:2;
+
+    font-size:1.08rem;
+
+}
+
+/* ==================================================
+   CTA
+   ================================================== */
+
+.peace-cta{
+
+    margin:80px 8%;
+
+    padding:80px 50px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:#111111;
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.peace-cta::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #b22222,
+        #2e7d32,
+        #b22222
+    );
+
+}
+
+.peace-cta h2{
+
+    font-size:2.6rem;
+
+    margin-bottom:20px;
+
+}
+
+.peace-cta p{
+
+    max-width:650px;
+
+    margin:0 auto 35px;
+
+    color:#d8d8d8;
+
+    line-height:1.9;
+
+}
+
+.peace-cta button{
+
+    padding:16px 36px;
+
+    background:white;
+
+    color:#111;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.peace-cta button:hover{
+
+    background:#b22222;
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+
+@media(max-width:900px){
+
+    .peace-hero{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+        padding:70px 8%;
+
+    }
+
+    .peace-hero h1{
+
+        font-size:2.8rem;
+
+    }
+
+    .peace-image{
+
+        height:380px;
+
+    }
+
+    .section-heading h2{
+
+        font-size:2.2rem;
+
+    }
+
+    .purpose-content h2{
+
+        font-size:2.2rem;
+
+    }
+
+    .peace-cta{
+
+        margin:60px 20px;
+
+        padding:60px 30px;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .peace-hero h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .peace-image{
+
+        height:300px;
+
+    }
+
+    .memory-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .peace-cta h2{
+
+        font-size:2rem;
+
+    }
+
+}
