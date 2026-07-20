@@ -5,6 +5,12 @@ import { useEventFormContext } from "../hooks/useEventFormContext"
 import { useAuthContext } from "../hooks/useAuthContext"
 
 const FormFour = () => {
+    //added this for deploying to vercel, to get the api url from the environment variable
+    //we changing all the fetch requests to use this variable instead of the hardcoded url
+    //this is done after deploying the backend to Render and the frontend to Vercel, so that 
+    // the frontend can access the backend api url from the environment variable
+    const API_URL = process.env.REACT_APP_API_URL;
+
     const { formData, dispatch2 } = useEventFormContext()
     const { user } = useAuthContext()
     const navigate = useNavigate()
@@ -48,7 +54,7 @@ const FormFour = () => {
         for (const [key, value] of data.entries()) {
         console.log(key, value)
         }
-        const response = await fetch('/api/mainroutes/', {
+        const response = await fetch(`${API_URL}/api/mainroutes/`, {
             method: 'POST',
             headers: {
                 Authorization: `Bearer ${user.token}`

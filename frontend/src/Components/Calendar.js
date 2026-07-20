@@ -8,14 +8,14 @@ import interactionPlugin from "@fullcalendar/interaction";
 import "./EventsCalendar.css";
 
 const EventsCalendar = () => {
-
+    const API_URL = process.env.REACT_APP_API_URL;
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
 
         const fetchEvents = async () => {
 
-            const response = await fetch("/api/mainroutes/");
+            const response = await fetch(`${API_URL}/api/mainroutes/`);
             const json = await response.json();
 
             if(response.ok){
@@ -26,7 +26,7 @@ const EventsCalendar = () => {
 
         fetchEvents();
 
-    }, []);
+    }, [API_URL]);
 
     const calendarEvents = events.map(event => ({
 

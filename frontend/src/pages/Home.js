@@ -11,7 +11,7 @@ import { useEffect } from "react"
 import { useRef } from 'react'
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const Home = () => {
-
+    const API_URL = process.env.REACT_APP_API_URL;
     const sliderRef = useRef(null)
 
     const scrollLeft = () => {
@@ -32,7 +32,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchEventDetails = async () => {
-            const response = await fetch('/api/mainroutes/')
+            const response = await fetch(`${API_URL}/api/mainroutes/`)
             const json = await response.json()
 
             console.log(response.status)
@@ -42,7 +42,7 @@ const Home = () => {
             }
         }
         fetchEventDetails()
-    }, [dispatch])//render once
+    }, [dispatch, API_URL])//render once
 
     return(
         <>

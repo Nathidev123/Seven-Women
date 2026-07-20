@@ -9,13 +9,12 @@ import {
     FaPhone,
     FaUserTie,
     FaTshirt,
-    FaUserSecret,
     FaBullseye,
     FaBullhorn
 } from "react-icons/fa";
 
 const EventPage = () => {
-
+    const API_URL = process.env.REACT_APP_API_URL;
     const { id } = useParams();
 
     const [event, setEvent] = useState(null);
@@ -24,7 +23,7 @@ const EventPage = () => {
 
         const fetchEventDetails = async () => {
 
-            const response = await fetch(`/api/mainroutes/${id}`);
+            const response = await fetch(`${API_URL}/api/mainroutes/${id}`);
             const json = await response.json();
 
             if (response.ok) {
@@ -35,12 +34,12 @@ const EventPage = () => {
 
         fetchEventDetails();
 
-    }, [id]);
+    }, [id, API_URL]);
 
     if (!event) {
         return (
             <div className="loading-page">
-                <h2></h2>
+               
             </div>
         );
     }
