@@ -3,8 +3,7 @@ import { useEventFormContext } from "../hooks/useEventFormContext"
 import { useState } from "react"
 
 const FormOne = () => {
-    const [emptyFields, setEmptyFields] = useState([])
-    const [error, setError] = useState([])
+    const [emptyFields] = useState([])
     const { formData, dispatch2 } = useEventFormContext()
 
 const navigate = useNavigate() 

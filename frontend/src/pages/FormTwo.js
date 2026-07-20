@@ -7,8 +7,8 @@ const FormTwo = () => {
 
     const navigate = useNavigate();
 
-    const [emptyFields, setEmptyFields] = useState([]);
-    const [error, setError] = useState(null);
+    const [emptyFields] = useState([]);
+    const [error] = useState(null);
 
     const handleChange = (e) => {
         dispatch2({

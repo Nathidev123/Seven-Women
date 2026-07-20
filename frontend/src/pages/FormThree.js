@@ -2,8 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { useEventFormContext } from "../hooks/useEventFormContext"
 const FormThree = () => {
-const [emptyFields, setEmptyFields] = useState([])
-const [error, setError] = useState(null)
+const [emptyFields] = useState([])
 const { formData, dispatch2 } = useEventFormContext()
 const navigate = useNavigate()
 
