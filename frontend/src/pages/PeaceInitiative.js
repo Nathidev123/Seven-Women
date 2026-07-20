@@ -43,7 +43,7 @@ const PeaceInitiative = () => {
                 <div className="peace-image">
 
                     <img src={Enyobeni}
-                    alt="Enyobeni Memorial Image"/>
+                    alt="Memorial for the Enyobeni 21"/>
 
 
                 </div>
