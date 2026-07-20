@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { FaCalendarAlt, FaClock } from "react-icons/fa";
 import profilePic from '../assets/placeholder.jpeg'
 const EventCards = ({ eventdetail }) => {
+    const API_URL = process.env.REACT_APP_API_URL;
     const navigate = useNavigate()
     
     console.log(eventdetail.image);
@@ -13,7 +14,7 @@ const EventCards = ({ eventdetail }) => {
         <img
     src={
         eventdetail.image
-            ? `/uploads/${eventdetail.image}`
+            ? `${API_URL}/uploads/${eventdetail.image}`
             : profilePic
     }
     alt={eventdetail.event_name}

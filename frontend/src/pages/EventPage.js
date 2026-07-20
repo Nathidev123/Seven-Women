@@ -71,7 +71,7 @@ const EventPage = () => {
                 <div className="event-hero-image">
 
                     <img
-                        src={`/uploads/${event.image}`}
+                        src={`${API_URL}/uploads/${event.image}`}
                         alt={event.event_name}
                         className="event-page-image"
                     />
