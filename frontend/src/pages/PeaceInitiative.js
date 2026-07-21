@@ -1,13 +1,18 @@
 import "./PeaceInitiative.css"
 import Enyobeni from '../assets/MC.jpg'
 import enyobeni21 from "../data/enyobeniData"
-
+import { useNavigate } from "react-router-dom"
 const PeaceInitiative = () => {
-
+    const navigate = useNavigate()
     return (
         <main className="peace-page">
 
-
+        <button
+            className="back-btn"
+            onClick={() => navigate(-1)}
+        >
+            ← Back
+        </button>
             {/* HERO */}
 
             <section className="peace-hero">

@@ -10,7 +10,8 @@ const FormFour = () => {
     //this is done after deploying the backend to Render and the frontend to Vercel, so that 
     // the frontend can access the backend api url from the environment variable
     const API_URL = process.env.REACT_APP_API_URL;
-
+    console.log("API_URL:", API_URL)
+    
     const { formData, dispatch2 } = useEventFormContext()
     const { user } = useAuthContext()
     const navigate = useNavigate()

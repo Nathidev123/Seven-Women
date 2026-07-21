@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import placeholder from "../assets/placeholder.jpeg";
 import {
     FaCalendarAlt,
     FaClock,
@@ -16,6 +18,7 @@ import {
 const EventPage = () => {
     const API_URL = process.env.REACT_APP_API_URL;
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const [event, setEvent] = useState(null);
 
@@ -45,11 +48,16 @@ const EventPage = () => {
     }
 
     return (
-
+        
         <main className="event-page">
 
             {/* HERO */}
-
+            <button
+                className="back-btn"
+                onClick={() => navigate(-1)}
+            >
+                ← Back
+            </button>
             <section className="event-hero">
 
                 <div className="event-hero-content">
@@ -70,11 +78,11 @@ const EventPage = () => {
 
                 <div className="event-hero-image">
 
-                    <img
-                        src={`${API_URL}/uploads/${event.image}`}
-                        alt={event.event_name}
-                        className="event-page-image"
-                    />
+            <img
+                src={event.image || placeholder}
+                alt={event.event_name}
+                className="event-page-image"
+            />
 
                 </div>
 

@@ -11,23 +11,28 @@ const requireAuth = require('../middleware/requireAuth')
 
 const express = require('express')
 //multer -> image uploads
+//now using cloudinary storage
 const multer = require('multer')
-const path = require('path')
+
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
+const cloudinary = require("../config/cloudinary");
+
+
 const router = express.Router()
 
 /*const upload = multer({
     dest: 'uploads/'
 })*/
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/')
-    },
-    filename: (req, file, cb) => {
-        const uniqueName = `event-${Date.now()}${path.extname(file.originalname)}`
-    cb(null, uniqueName)
+const storage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+        folder: "community-events",
+        allowed_formats: ["jpg", "jpeg", "png", "webp"]
     }
-})
-const upload = multer({ storage })
+});
+
+const upload = multer({ storage });
 
 //routes
 router.get('/', getAllEvents)

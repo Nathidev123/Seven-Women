@@ -12,11 +12,7 @@ const EventCards = ({ eventdetail }) => {
         <div className="event-card"
         onClick={() => navigate(`/eventPage/${eventdetail._id}`)}>
         <img
-    src={
-        eventdetail.image
-            ? `${API_URL}/uploads/${eventdetail.image}`
-            : profilePic
-    }
+    src={eventdetail.image || profilePic}
     alt={eventdetail.event_name}
     className="event-image"
 />

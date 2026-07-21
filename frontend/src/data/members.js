@@ -66,6 +66,15 @@ const members = [
         email:"naledi.molefe@gmail.com",
         phone:"082 999 0000"
     },
+    {
+    id:8,
+        name:"Kwezilomso Mbandazayo",
+        role:"Social Worker",
+        image:profilePic,
+        bio:"Naledi has a BA in Social Work from UJ and supports survivors of gender-based violence through counseling and advocacy.",
+        email:"naledi.molefe@gmail.com",
+        phone:"082 999 0000"
+    }
     
 
 ]

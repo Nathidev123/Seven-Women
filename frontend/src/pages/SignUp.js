@@ -18,6 +18,14 @@ const SignUp = () => {
             }
         }
         return(
+            <>
+               <button
+            className="back-btn"
+            onClick={() => navigate(-1)}
+        >
+            ← Back
+        </button>
+            
             <form className="signup" onSubmit={handleSubmit}>
                 <h3>Sign Up</h3>
 
@@ -33,6 +41,7 @@ const SignUp = () => {
                 <button disabled={isLoading}>Sign Up</button>
                 {error && <div className="error">{error}</div>}
             </form>
+            </>
         )
     
 }

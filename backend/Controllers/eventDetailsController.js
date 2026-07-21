@@ -49,9 +49,16 @@ const createEvent =  async (req, res) => {
     
 } = req.body;
 
-const image = req.file ? req.file.filename : null
-console.log(req.file);
-console.log(image);
+//const image = req.file ? req.file.filename : null
+//the above worked because multer was saving the image in the uploads folder, now we are using 
+// cloudinary storage so we need to get the image url from cloudinary
+const image = req.file ? req.file.path : null;
+//console.log(req.file);
+//console.log(image);
+console.log("========== FILE ==========");
+console.dir(req.file, { depth: null });
+console.log("==========================");
+console.log("Cloudinary URL:", image);
 
 //creating array for emptyFields
 let emptyFields = []
