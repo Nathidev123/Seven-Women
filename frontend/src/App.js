@@ -13,6 +13,8 @@ import PeaceInitiative from './pages/PeaceInitiative'
 import Footer from './Components/Footer'
 import ScrollToHash from "./Components/ScrollToHash";
 import ScrollToTop from './Components/ScrollToTop';
+import MemberProfile from './pages/MemberProfile';
+
 function App() {
   return (
 
@@ -74,6 +76,11 @@ function App() {
     <Route
     path='/peace-initiative'
     element={<PeaceInitiative/>}
+    />
+
+    <Route
+    path='/member-profile/:id'
+    element={<MemberProfile/>}
     />
     
     </Routes>

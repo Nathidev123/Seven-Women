@@ -1,18 +1,15 @@
-import { useState } from "react";
-import MemberModal from "./MemberModal";
+//import MemberModal from "./MemberModal";
+//import MemberProfile from "./pages/MemberProfile";
 import members from "../data/members";
-
+import './Members.css'
+import { useNavigate } from "react-router-dom";
 const MemberCards = () => {
-
-    const [selectedMember, setSelectedMember] = useState(null);
-
+const navigate = useNavigate();
+    
     const handleClick = (member) => {
-        setSelectedMember(member);
-    };
+        navigate(`/member-profile/${member.id}`);
+    }
 
-    const closeModal = () => {
-        setSelectedMember(null);
-    };
 
     return (
         <>
@@ -21,7 +18,7 @@ const MemberCards = () => {
 
                 {members.map((member) => (
 
-                    <div
+                    <button
                         key={member.id}
                         className="member-card"
                         onClick={() => handleClick(member)}
@@ -35,24 +32,16 @@ const MemberCards = () => {
 
                         <h3>{member.name}</h3>
 
-                        <span>{member.role}</span>
+                        
 
-                    </div>
+                    </button>
 
                 ))}
 
             </div>
 
-            {selectedMember && (
-
-                <MemberModal
-                    member={selectedMember}
-                    closeModal={closeModal}
-                />
-
-            )}
-
         </>
+        //<span>{member.role}</span>
     );
 };
 

@@ -55,9 +55,7 @@ const createEvent =  async (req, res) => {
 const image = req.file ? req.file.path : null;
 //console.log(req.file);
 //console.log(image);
-console.log("========== FILE ==========");
-console.dir(req.file, { depth: null });
-console.log("==========================");
+console.log(req.file);
 console.log("Cloudinary URL:", image);
 
 //creating array for emptyFields

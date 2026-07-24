@@ -8,7 +8,7 @@ export const useLogin = () => {
     //added this for deploying to vercel, to get the api url from the environment variable
     //we changing all the fetch requests to use this variable instead of the hardcoded url
     //this is done after deploying the backend to Ren
-    const API_URL = process.env.REACT_APP_API_URL;
+    //const API_URL = process.env.REACT_APP_API_URL;
     const [error, setError] = useState(null)
 
     const [isLoading, setIsLoading] = useState(null)
@@ -18,8 +18,8 @@ export const useLogin = () => {
     const login = async (email, password) => {
         setIsLoading(true)
         setError(null)
-
-        const response = await fetch(`${API_URL}/api/user/login`, {
+        //const response = await fetch(`${API_URL}/api/user/login`
+        const response = await fetch('/api/user/login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, password})

@@ -11,7 +11,7 @@ import { useEffect } from "react"
 import { useRef } from 'react'
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const Home = () => {
-    const API_URL = process.env.REACT_APP_API_URL;
+    //const API_URL = process.env.REACT_APP_API_URL;
     const sliderRef = useRef(null)
 
     const scrollLeft = () => {
@@ -32,7 +32,8 @@ const Home = () => {
 
     useEffect(() => {
         const fetchEventDetails = async () => {
-            const response = await fetch(`${API_URL}/api/mainroutes/`)
+            //const response = await fetch(`${API_URL}/api/mainroutes/`
+            const response = await fetch('/api/mainroutes/')
             const json = await response.json()
 
             console.log(response.status)
@@ -42,16 +43,25 @@ const Home = () => {
             }
         }
         fetchEventDetails()
-    }, [dispatch, API_URL])//render once
-
+    }, [dispatch])//render once
+    //, API_URL WAS IN dependancy array above
     return(
         <>
         <Link to='/signup'></Link>
         <section className="hero-section">   
-         <h1>Seven Women. One Vision. A Future South Africa Built On Peace.</h1>
+         <h1>Eight Women. One Vision. A Future South Africa Built On Peace.</h1>
+        {/* MEMBERS */}
+
+    <div className="half-section">
+    <section id="members" className="members-section">
+
+        <h1 className="meet-members">Meet The Eight Women</h1>
+
+        {/* Member Cards */}
+        <MemberCards />
         
-        
-        
+    </section>
+       </div> 
         {/* this to open a section on the same page */}
         
         </section>
@@ -132,15 +142,7 @@ const Home = () => {
 
     </section>
 
-    {/* MEMBERS */}
-
-    <section id="members" className="members-section">
-
-        <h1>Meet The Seven Women</h1>
-
-        {/* Member Cards */}
-        <MemberCards />
-    </section>
+    
 
     {/* MISSION */}
 

@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 
 const EventPage = () => {
-    const API_URL = process.env.REACT_APP_API_URL;
+    //const API_URL = process.env.REACT_APP_API_URL;
     const { id } = useParams();
     const navigate = useNavigate();
 
@@ -25,8 +25,8 @@ const EventPage = () => {
     useEffect(() => {
 
         const fetchEventDetails = async () => {
-
-            const response = await fetch(`${API_URL}/api/mainroutes/${id}`);
+            //const response = await fetch(`${API_URL}/api/mainroutes/${id}`)
+            const response = await fetch(`/api/mainroutes/${id}`);
             const json = await response.json();
 
             if (response.ok) {
@@ -37,8 +37,8 @@ const EventPage = () => {
 
         fetchEventDetails();
 
-    }, [id, API_URL]);
-
+    }, [id]);
+    //API_URL this was in the dependency array
     if (!event) {
         return (
             <div className="loading-page">

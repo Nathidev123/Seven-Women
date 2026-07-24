@@ -1,17 +1,10 @@
-const MemberModal = ({ member, closeModal }) => {
+/*const MemberModal = ({ member, closeModal }) => {
 
     return (
 
         <div className="member-modal-overlay">
 
             <div className="member-modal">
-
-                <button
-                    className="close-btn"
-                    onClick={closeModal}
-                >
-                    ×
-                </button>
 
                 <img
                     src={member.image}
@@ -38,4 +31,4 @@ const MemberModal = ({ member, closeModal }) => {
     );
 };
 
-export default MemberModal;
+export default MemberModal; */

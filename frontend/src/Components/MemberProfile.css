@@ -1,0 +1,233 @@
+/* =========================
+   MEMBER PROFILE
+========================= */
+
+.member-page{
+    max-width:1100px;
+    margin:70px auto;
+    padding:50px;
+    background:var(--surface);
+    border-radius:30px;
+    box-shadow:var(--shadow);
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-btn{
+    margin:40px 0 0 8%;
+    padding:12px 24px;
+    border:none;
+    border-radius:999px;
+    background:var(--primary);
+    color:#fff;
+    font-size:.95rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.back-btn:hover{
+    transform:translateY(-2px);
+    opacity:.92;
+}
+
+/* =========================
+   MEMBER HEADER
+========================= */
+
+.member-page h1{
+    font-size:3rem;
+    color:var(--text);
+    margin-bottom:12px;
+    line-height:1.2;
+}
+
+.member-page h2{
+    font-size:1.2rem;
+    color:var(--primary);
+    font-weight:500;
+    margin-bottom:35px;
+}
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.member-page h3{
+    margin-top:50px;
+    margin-bottom:18px;
+    font-size:1.35rem;
+    color:var(--text);
+    position:relative;
+    padding-left:18px;
+}
+
+.member-page h3::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:5px;
+    width:6px;
+    height:24px;
+    border-radius:20px;
+    background:var(--primary);
+}
+
+/* =========================
+   BIOGRAPHY
+========================= */
+
+.member-page p{
+    color:var(--text-light);
+    font-size:1.05rem;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.member-page p:nth-of-type(2),
+.member-page p:nth-of-type(3){
+    font-weight:500;
+}
+
+/* =========================
+   YOUTUBE VIDEOS
+========================= */
+
+.member-video{
+    margin-top:35px;
+    padding:30px;
+    background:#fff;
+    border-radius:24px;
+    box-shadow:0 12px 35px rgba(0,0,0,.06);
+    transition:.3s ease;
+}
+
+.member-video:hover{
+    transform:translateY(-5px);
+}
+
+.member-video h3{
+    margin-top:0;
+    margin-bottom:20px;
+    padding-left:0;
+}
+
+.member-video h3::before{
+    display:none;
+}
+
+.member-video iframe{
+    display: block;
+    width:50%;
+    aspect-ratio:16/9;
+    border:none;
+    border-radius:18px;
+    margin: 0 auto;
+}
+
+/* =========================
+   SUBTLE DIVIDER
+========================= */
+
+.member-page hr{
+    border:none;
+    border-top:1px solid rgba(0,0,0,.08);
+    margin:45px 0;
+}
+.name-section{
+    
+    font-size:1.5rem;
+    color:var(--text);
+    margin-bottom:8px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+    .member-page{
+        margin:40px 20px;
+        padding:35px;
+    }
+
+    .member-page h1{
+        font-size:2.4rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .back-btn{
+        margin:25px 20px;
+    }
+
+    .member-page{
+        margin:20px;
+        padding:28px;
+        border-radius:24px;
+    }
+
+    .member-page h1{
+        font-size:2rem;
+    }
+
+    .member-page h2{
+        font-size:1.05rem;
+    }
+
+    .member-page p{
+        font-size:1rem;
+        line-height:1.8;
+    }
+
+    .member-video{
+        padding:18px;
+    }
+
+    .member-video iframe{
+        width:100%;
+        max-width:100%;
+    }
+
+}
+
+
+
+@media(max-width:480px){
+
+    .member-page{
+        padding:22px;
+    }
+
+    .member-page h1{
+        font-size:1.7rem;
+    }
+
+    .member-page h3{
+        font-size:1.15rem;
+    }
+
+    .back-btn{
+        width:calc(100% - 40px);
+    }
+
+}
+.member-profile-image{
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
+    margin:0 auto 30px;
+    border:6px solid #fff;
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}

@@ -25,7 +25,7 @@ const Navbar = () => {
 
                 <Link to="/" className="logo">
 
-                    <h2>Seven Women</h2>
+                    <h2>Eight Women</h2>
 
                     <span>Building Peace Together</span>
 
