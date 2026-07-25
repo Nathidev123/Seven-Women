@@ -13,7 +13,8 @@ const Login = () => {
             //console.log(email, password)
             const success = await login(email, password)
             if(success){
-                navigate('/formOne')
+                //navigate('/formOne')
+                navigate('/dashboard')
             }
         }
         return(

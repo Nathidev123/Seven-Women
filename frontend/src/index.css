@@ -2756,4 +2756,20 @@ input[type=file]{
     border: none;
 }
 
-
+/* Map CSS */ 
+.displayMap{
+    border: solid none;
+    border-radius: 20px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+@media(max-width:768px){
+    .displayMap{
+        width: 100%;
+    }
+}
+@media(max-width:480px){
+    .displayMap{
+        width: 100%;
+    }
+}

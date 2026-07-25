@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import placeholder from "../assets/placeholder.jpeg";
+ 
 import {
     FaCalendarAlt,
     FaClock,
@@ -31,6 +32,7 @@ const EventPage = () => {
 
             if (response.ok) {
                 setEvent(json);
+                console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
             }
 
         };
@@ -87,7 +89,23 @@ const EventPage = () => {
                 </div>
 
             </section>
-
+             <section>
+                {/*To display map*/}
+                <div className="map-container">
+                <p>{event.location}</p>
+                <iframe className="displayMap"
+                title="Event Location"
+                width="65%"
+                height="200"
+                style={{ border: 0}}
+                loading="lazy"
+                allowFullScreen
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(event.location)}`}>
+                
+                </iframe>
+                </div>
+            </section>
+            
             {/* QUICK INFO */}
 
             <section className="event-info-grid">
@@ -186,6 +204,8 @@ const EventPage = () => {
                 </p>
 
             </section>
+           
+            
 
             {/* EVENT DETAILS */}
 

@@ -14,6 +14,7 @@ import Footer from './Components/Footer'
 import ScrollToHash from "./Components/ScrollToHash";
 import ScrollToTop from './Components/ScrollToTop';
 import MemberProfile from './pages/MemberProfile';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -81,6 +82,11 @@ function App() {
     <Route
     path='/member-profile/:id'
     element={<MemberProfile/>}
+    />
+
+    <Route
+    path='/dashboard'
+    element={<Dashboard/>}
     />
     
     </Routes>
