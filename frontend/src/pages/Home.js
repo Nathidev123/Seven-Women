@@ -102,28 +102,46 @@ const Home = () => {
 
         <div className="events-wrapper">
 
-         <button
-                 className="arrow-left"
-                  onClick={scrollLeft}
-                >
-                 <FaChevronLeft />
-          </button>
+    {eventdetails?.length > 0 && (
+        <button
+            className="arrow-left"
+            onClick={scrollLeft}
+        >
+            <FaChevronLeft />
+        </button>
+    )}
 
-             <div
-             ref={sliderRef}
-            className="event-cards-container"
-              >
+    <div
+        ref={sliderRef}
+        className="event-cards-container"
+    >
             
 
-                {eventdetails &&
-                      eventdetails.map((eventdetail) => (
+                {eventdetails && eventdetails.length > 0 ? (
 
-                           <EventCards
-                         key={eventdetail._id}
-                           eventdetail={eventdetail}
-                    />
+    eventdetails.map((eventdetail) => (
+        <EventCards
+            key={eventdetail._id}
+            eventdetail={eventdetail}
+        />
+    ))
 
-                   ))}
+) : (
+
+    <div className="events-empty-state">
+
+        <div className="events-empty-icon">📅</div>
+
+        <h2>No Upcoming Events</h2>
+
+        <p>
+            We're currently planning our next community gathering.
+            Check back soon for new events and opportunities to get involved.
+        </p>
+
+    </div>
+
+)}
 
                  </div>
 

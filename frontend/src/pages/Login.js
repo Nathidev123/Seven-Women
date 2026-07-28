@@ -3,6 +3,7 @@ import { useLogin } from "../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -11,7 +12,7 @@ const Login = () => {
         const handleSubmit = async (e) => {
             e.preventDefault()
             //console.log(email, password)
-            const success = await login(email, password)
+            const success = await login(name, email, password)
             if(success){
                 //navigate('/formOne')
                 navigate('/dashboard')
@@ -29,6 +30,11 @@ const Login = () => {
             <form 
             className="signup" onSubmit={handleSubmit}>
                 <h3>Log In </h3>
+
+                <label>Name</label>
+                <input type="text"
+                onChange={(e) => setName(e.target.value)}
+                value={name}/>
 
                 <label>Email</label>
                 <input type="email"

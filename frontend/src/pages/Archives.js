@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useEventDetailsContext } from "../hooks/useEventDetailsContext"
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useNavigate } from "react-router-dom"
@@ -9,6 +9,11 @@ const Archives = () => {
 
     const { eventdetails, dispatch } = useEventDetailsContext()
     const { user } = useAuthContext()
+
+    //states for delete
+    const [showDeleteModal, setShowDeleteModal] = useState(false)
+    const [selectedEvent, setSelectedEvent] = useState(null)
+
     const navigate = useNavigate()
 
     const handleBackBtn = () => {
@@ -34,9 +39,9 @@ const Archives = () => {
 
     }, [dispatch])
 
-    const handleDelete = async (event, id) => {
+    const handleDelete = async (id) => {
         //stop delete from opening new page
-        event.stopPropagation()
+        //event.stopPropagation()
         if(!user){
             return
         }
@@ -55,6 +60,7 @@ const Archives = () => {
         //now frontend
         if(response.ok){
             dispatch({type: 'DELETE_EventDetails', payload: json})
+            setShowDeleteModal(false)
         }
     }
 
@@ -79,11 +85,14 @@ const Archives = () => {
             type: 'PATCH_EventDetails',
             payload: json
         })
+        setShowDeleteModal(false)
+        setSelectedEvent(null)
     }
 }
 
-
-
+//for empty state
+const archivedEvents =
+    eventdetails?.filter(event => event.status === "archived") || [];
 
     return(
 
@@ -99,10 +108,28 @@ const Archives = () => {
 
             <div className="dash-container">
 
-                {eventdetails &&
-                    eventdetails
-                        .filter(event => event.status === "archived")
-                        .map(eventdetail => (
+    {archivedEvents.length === 0 ? (
+
+        <div className="empty-state">
+            <div className="empty-icon">📦</div>
+
+            <h2>No Archived Events</h2>
+
+            <p>
+                Archived events will appear here once you archive them from the dashboard.
+            </p>
+
+            <button
+                className="empty-btn"
+                onClick={() => navigate("/dashboard")}
+            >
+                Back to Dashboard
+            </button>
+        </div>
+
+    ) : (
+
+        archivedEvents.map(eventdetail => (
 
                             <div
                                 key={eventdetail._id}
@@ -138,7 +165,11 @@ const Archives = () => {
                                             hour12: true
                                         })}
                                 </p>
-                            <button onClick={(event) => handleDelete(event, eventdetail._id)}>
+                            <button onClick={(event) => {
+                                event.stopPropagation()
+                                setSelectedEvent(eventdetail)
+                                setShowDeleteModal(true)
+                            }}>
                        Permanantly Delete
                     </button>
 
@@ -154,11 +185,48 @@ const Archives = () => {
                                 Publish
                             </button>
                             </div>
-
+        
                         ))
-                }
+                    )}
+    
+            </div>
+            {showDeleteModal && (
+    <div className="modal-overlay">
+
+        <div className="delete-modal">
+
+            <h2>Delete Event?</h2>
+
+            <p>
+                Are you sure you want to delete
+                <strong> {selectedEvent?.event_name}</strong>?
+            </p>
+
+            <div className="modal-buttons">
+
+                <button
+                    className="cancel-btn"
+                    onClick={() => {
+                        setShowDeleteModal(false)
+                        setSelectedEvent(null)
+                    }}
+                >
+                    Cancel
+                </button>
+
+                <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(selectedEvent._id)}
+                >
+                    Yes, Delete
+                </button>
 
             </div>
+
+        </div>
+
+    </div>
+)}
 
         </>
 

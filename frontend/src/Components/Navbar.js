@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import {  FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 
 import { useLogout } from "../hooks/useLogout";
@@ -43,15 +43,7 @@ const Navbar = () => {
 
                 </nav>
 
-                <div className="search-container">
-
-                    <FaSearch />
-
-                    <input
-                        placeholder="Search..."
-                    />
-
-                </div>
+                
 
                 <button
                     className="hamburger"

@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
 const userSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true,
@@ -14,10 +18,10 @@ const userSchema = mongoose.Schema({
 })
 /* writing hashing logic*/
 
-userSchema.statics.signup = async function(email, password){
+userSchema.statics.signup = async function(name, email, password){
 
     //adding validator
-    if(!email || !password){
+    if( !name || !email || !password ){
         throw Error('All fields must be filled')
     }
     if(!validator.isEmail(email)){
@@ -38,14 +42,14 @@ userSchema.statics.signup = async function(email, password){
     const hash = await bcrypt.hash(password, salt)
 
     //storing alongside user
-    const user = await this.create({email, password: hash})
+    const user = await this.create({name, email, password: hash})
     return user
 }
 
 
-userSchema.statics.login = async function(email, password){
+userSchema.statics.login = async function(name, email, password){
     
-    if(!email || !password){
+    if( !name || !email || !password ){
     throw Error('All fields must be filled')
     }  
 

@@ -3,6 +3,7 @@ import { useSignup } from "../hooks/useSignup";
 import { useNavigate } from "react-router-dom";
 const SignUp = () => {
 
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate() 
@@ -12,7 +13,7 @@ const SignUp = () => {
             e.preventDefault()
             
             //console.log(email, password)
-            const success = await signup(email, password)
+            const success = await signup(name, email, password)
             if(success){
                 navigate('/formOne')
             }
@@ -28,6 +29,11 @@ const SignUp = () => {
             
             <form className="signup" onSubmit={handleSubmit}>
                 <h3>Sign Up</h3>
+
+                <label>Name</label>
+                <input type="text"
+                onChange={(e) => setName(e.target.value)}
+                value={name}/>
 
                 <label>Email</label>
                 <input type="email"

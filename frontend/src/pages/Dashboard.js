@@ -2,11 +2,17 @@ import { useEffect, useState } from "react"
 import { useEventDetailsContext } from "../hooks/useEventDetailsContext"
 import { useAuthContext } from "../hooks/useAuthContext";
 import { FaCalendarAlt, FaClock, FaBars, FaTimes } from "react-icons/fa";
-import { MdOutlineArchive } from "react-icons/md";
+import { MdOutlineArchive, MdOutlineSort } from "react-icons/md";
 import placeholder from '../assets/placeholder.jpeg'
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './Dashboard.css'
+import {
+    FaCheckCircle,
+    FaEdit,
+    FaArchive,
+    FaRocket
+} from "react-icons/fa";
 const Dashboard = () => {
     const navigate = useNavigate()
     //needs to display all events created
@@ -16,7 +22,7 @@ const Dashboard = () => {
     const { eventdetails, dispatch } = useEventDetailsContext()
     const { user } = useAuthContext()
     const [menuOpen, setMenuOpen] = useState(false)
-    
+    const [sortOrder, setSortOrder] = useState('newest')
     useEffect(() => {
         const fetchEventDetails = async () => {
             const response = await fetch('/api/mainroutes/admin')
@@ -88,7 +94,41 @@ const Dashboard = () => {
         })
     }
 }
+
+/*Statistics logic*/
+    const totalEvents = eventdetails?.length || 0
+
+const publishedEvents =
+    eventdetails?.filter(event => event.status === "published").length || 0
+
+const draftEvents =
+    eventdetails?.filter(event => event.status === "draft").length || 0
+
+const archivedEvents =
+    eventdetails?.filter(event => event.status === "archived").length || 0
+
+const upcomingEvents =
+    eventdetails?.filter(event =>
+        new Date(event.event_date) >= new Date() &&
+        event.status !== "archived"
+    ).length || 0
     
+    //Greeting
+    const hour = new Date().getHours()
+
+        let greeting = "Good Evening"
+
+        if (hour < 12) {
+            greeting = "Good Morning"
+        } else if (hour < 18) {
+            greeting = "Good Afternoon"
+        }
+
+
+        //empty states
+        const activeEvents =
+    eventdetails?.filter(event => event.status !== "archived") || [];
+
     return(
         <>
         <button
@@ -130,14 +170,132 @@ const Dashboard = () => {
                     onClick={() => setMenuOpen(false)}
                 />
             )}
-            <h1>Dashboard</h1>
+            <div className="dashboard-header">
+                
+                <h1>{greeting} {user?.name}</h1>
+                <p>
+            You have <strong>{upcomingEvents}</strong> upcoming events,
+            <strong> {draftEvents}</strong> drafts waiting to be published,
+            and <strong>{publishedEvents}</strong> published events.
+        </p>
+            </div>
+
+            
+
         
-        
+        <section className="statistics">
+
+    <div className="statcard total">
+        <div className="stat-icon">
+            <FaCalendarAlt />
+        </div>
+
+        <div>
+            <span>Total Events</span>
+            <h2>{totalEvents}</h2>
+        </div>
+    </div>
+
+    <div className="statcard published">
+        <div className="stat-icon">
+            <FaCheckCircle />
+        </div>
+
+        <div>
+            <span>Published</span>
+            <h2>{publishedEvents}</h2>
+        </div>
+    </div>
+
+    <div className="statcard draft">
+        <div className="stat-icon">
+            <FaEdit />
+        </div>
+
+        <div>
+            <span>Drafts</span>
+            <h2>{draftEvents}</h2>
+        </div>
+    </div>
+
+    <div className="statcard archived">
+        <div className="stat-icon">
+            <FaArchive />
+        </div>
+
+        <div>
+            <span>Archived</span>
+            <h2>{archivedEvents}</h2>
+        </div>
+    </div>
+
+    <div className="statcard upcoming">
+        <div className="stat-icon">
+            <FaRocket />
+        </div>
+
+        <div>
+            <span>Upcoming</span>
+            <h2>{upcomingEvents}</h2>
+        </div>
+    </div>
+            
+</section>
+
+           <div className="dashboard-actions">
+    <button
+        className="sort-btn"
+        onClick={() =>
+            setSortOrder(prev =>
+                prev === "newest" ? "oldest" : "newest"
+            )
+        }
+    >
+        <MdOutlineSort />
+
+        {sortOrder === "newest"
+            ? "Newest First"
+            : "Oldest First"}
+    </button>
+</div>    
         <div className="dash-container"
        >
-        {eventdetails &&
-    eventdetails
-        .filter(event => event.status !== "archived")
+        
+    {activeEvents.length === 0 ? (
+
+    <div className="empty-state">
+
+        <div className="empty-icon">
+            <FaCalendarAlt />
+        </div>
+
+        <h2>No Events Yet</h2>
+
+        <p>
+             You haven't created any events yet.
+    Start by creating your first community event.
+        </p>
+
+        <button
+            className="empty-btn"
+            onClick={() => navigate("/formOne")}
+        >
+            + Create First Event
+        </button>
+
+    </div>
+
+) : (
+
+    [...activeEvents]
+        .sort((a, b) => {
+            const dateA = new Date(a.event_date)
+            const dateB = new Date(b.event_date)
+
+            return sortOrder === "newest"
+                ? dateB - dateA
+                : dateA - dateB
+        })
         .map((eventdetail) => {
             return (
                 <div
@@ -192,13 +350,14 @@ const Dashboard = () => {
         Publish
     </button>
 )}
+    
                 </div>
             );
-        })}
+        })
+    )}
         </div>
         </>
-    )
-}
+    )}
 
 
 export default Dashboard

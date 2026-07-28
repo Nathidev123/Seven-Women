@@ -157,49 +157,7 @@ body{
 
 }
 
-/* ==================================================
-   Search
-================================================== */
 
-.search-container{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    background:#202020;
-
-    padding:10px 16px;
-
-    border-radius:999px;
-
-    border:1px solid rgba(255,255,255,.05);
-
-    color:white;
-
-}
-
-.search-container input{
-
-    border:none;
-
-    background:none;
-
-    outline:none;
-
-    color:white;
-
-    width:170px;
-
-}
-
-.search-container input::placeholder{
-
-    color:#9ca3af;
-
-}
 
 /* ==================================================
    Hamburger
@@ -381,11 +339,6 @@ body{
 
     }
 
-    .search-container{
-
-        display:none;
-
-    }
 
     .hamburger{
 
@@ -3107,4 +3060,41 @@ input[type=file]{
     .displayMap{
         width: 100%;
     }
+}
+
+/*empy state for events*/
+.events-empty-state{
+    width:100%;
+    min-height:340px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    background:#fff;
+    border:2px dashed #e8e8e8;
+    border-radius:28px;
+
+    padding:60px 40px;
+    margin:auto;
+}
+
+.events-empty-icon{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.events-empty-state h2{
+    color:var(--primary);
+    margin-bottom:15px;
+    font-size:2rem;
+}
+
+.events-empty-state p{
+    max-width:500px;
+    color:#666;
+    line-height:1.7;
+    font-size:1.05rem;
 }
