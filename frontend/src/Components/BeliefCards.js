@@ -1,3 +1,10 @@
+import {
+    FaDove,
+    FaBalanceScale,
+    FaHandsHelping,
+    FaHeart
+} from "react-icons/fa";
+
 const BeliefCards = () => {
     return (
         <section className="who-we-are">
@@ -22,33 +29,43 @@ const BeliefCards = () => {
 
                 </div>
 
-                <div className="card-components">
-
-                    <div className="belief-card">
+                <div className="belief-path">
+               
+                    <div className="belief-step">
+                        <FaDove className="belief-icon"/>
+                        <div>
                         <h2>Peace</h2>
                         <p>
                             We believe peace begins with dialogue,
                             understanding and mutual respect.
                         </p>
+                        </div>
                     </div>
 
-                    <div className="belief-card">
+                    <div className="belief-step">
+                        <FaBalanceScale className="belief-icon"/>
+                        <div>
                         <h2>Justice</h2>
                         <p>
                             We advocate for fairness, dignity and accountability
                             in every community.
                         </p>
+                        </div>
                     </div>
 
-                    <div className="belief-card">
+                    <div className="belief-step">
+                        <FaHandsHelping className="belief-icon"/>
+                        <div>
                         <h2>Community</h2>
                         <p>
                             We strengthen communities through collaboration,
                             trust and collective action.
                         </p>
+                        </div>
                     </div>
 
-                    <div className="belief-card">
+                    <div className="belief-step">
+                        <FaHeart className="belief-icon"/>
                         <h2>Healing</h2>
                         <p>
                             We believe lasting change begins with healing

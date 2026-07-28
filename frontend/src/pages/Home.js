@@ -32,7 +32,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchEventDetails = async () => {
-            //const response = await fetch(`${API_URL}/api/mainroutes/`
+            //const response = await fetch(`${API_URL}/api/mainroutes/`)
             const response = await fetch('/api/mainroutes/')
             const json = await response.json()
 
@@ -51,7 +51,7 @@ const Home = () => {
         <section className="hero-section">   
          <h1>Eight Women. One Vision. A Future South Africa Built On Peace.</h1>
         {/* MEMBERS */}
-
+ 
     <div className="half-section">
     <section id="members" className="members-section">
 

@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 app.use('/api/user', userRoutes)
 
 app.use('/api/mainroutes/', eventRoutes)
-
+app.use('/api/mainroutes/admin', eventRoutes)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {

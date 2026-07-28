@@ -113,6 +113,11 @@ audience: {
         type: String,
         required: true
     },
+    status: {
+        type: String,
+        enum: ['draft', 'published', 'archived'],
+        default: 'draft'
+    },
 
     user_id:{
         type: mongoose.Schema.Types.ObjectId,

@@ -25,7 +25,7 @@ const navigate = useNavigate()
          navigate('/formTwo') 
     }
     const handleBackBtn = () => {
-        navigate('/')
+        navigate('/dashboard')
     }
     return(
         <div className="event-form-page">

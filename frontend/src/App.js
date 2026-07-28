@@ -15,6 +15,8 @@ import ScrollToHash from "./Components/ScrollToHash";
 import ScrollToTop from './Components/ScrollToTop';
 import MemberProfile from './pages/MemberProfile';
 import Dashboard from './pages/Dashboard';
+import AdminEventPage from './pages/AdminEventPage';
+import Archives from './pages/Archives';
 
 function App() {
   return (
@@ -87,6 +89,16 @@ function App() {
     <Route
     path='/dashboard'
     element={<Dashboard/>}
+    />
+
+    <Route
+    path='/adminevent/:id'
+    element={<AdminEventPage/>}
+    />
+
+    <Route
+    path='/archives'
+    element={<Archives/>}
     />
     
     </Routes>

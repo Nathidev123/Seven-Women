@@ -2,9 +2,13 @@
 const eventDetails = require('../models/eventsModel')
 const mongoose = require('mongoose')
 //get all event details
-const getAllEvents = async (req,res) => {
-    const eventDetail = await eventDetails.find({}).sort({createdAt: -1})
 
+const getAllEvents = async (req,res) => {
+    const eventDetail = await eventDetails.find({
+        status: 'published'
+    }).sort({createdAt: -1})
+    //now filtering based on the status, as public events 
+    //shouldnt display drafts
     res.status(200).json(eventDetail)
 }  
 
@@ -24,6 +28,10 @@ const getEvent = async (req,res) => {
 
 //post event details
 const createEvent =  async (req, res) => {
+    console.log("========== NEW REQUEST ==========");
+    console.log("BODY:", req.body);
+    console.log("BODY TYPE:", typeof req.body);
+    console.log("BODY KEYS:", Object.keys(req.body));
   const user_id = req.user._id
 
         const {
@@ -45,16 +53,16 @@ const createEvent =  async (req, res) => {
     end_time,
     
     capacity,       
-    dress_code
-    
+    dress_code,
+    status
+    //whether, draft, archived, published
 } = req.body;
 
 //const image = req.file ? req.file.filename : null
 //the above worked because multer was saving the image in the uploads folder, now we are using 
 // cloudinary storage so we need to get the image url from cloudinary
 const image = req.file ? req.file.path : null;
-//console.log(req.file);
-//console.log(image);
+
 console.log(req.file);
 console.log("Cloudinary URL:", image);
 
@@ -120,7 +128,7 @@ if(!/^0\d{9}$/.test(contact_phone)){
 }
 
 try{
-   
+
    const eventDetail = await eventDetails.create({
     organizer,
     contact_email,
@@ -140,6 +148,7 @@ try{
     image,
     capacity,       
     dress_code,
+    status,
     user_id})
     res.status(200).json(eventDetail)
     //for error forgot to save images above
@@ -157,7 +166,7 @@ const deleteEvent = async (req, res) => {
     if(!eventDetail){
         res.status(400).json({error: 'No such event'})
     }
-    res.status(200).json(eventDetail)
+    return res.status(200).json(eventDetail)
 }
 
 const updateEvent = async (req, res) => {
@@ -165,8 +174,19 @@ const updateEvent = async (req, res) => {
     if(!mongoose.Types.ObjectId.isValid(id)){
     return res.status(404).json({error: 'No such event'})
 }
-    const eventDetail = await eventDetails.findOneAndUpdate({_id: id}, {
-        ...req.body //so updating particular fields
+    const image = req.file ? req.file.path : null
+
+    const updateData = {
+        ...req.body//so updating particular fields
+    }
+
+    if(image){
+        updateData.image = image
+    }
+    const eventDetail = await eventDetails.findOneAndUpdate({_id: id},
+        updateData,
+    {
+        new: true
     })
     if(!eventDetail){
         res.status(400).json({error: 'No such event'})

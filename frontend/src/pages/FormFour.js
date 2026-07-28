@@ -34,7 +34,7 @@ const FormFour = () => {
         })
     }
     
-    const handleSubmit = async () => {
+    const handleSubmit = async (status) => {
         /*preventing unauthenticated users from submitting */
         if(!user){
             setError('You must be logged in')
@@ -46,15 +46,13 @@ const FormFour = () => {
         data.append(key, value)
         })
 
-        
+        data.append('status', status)
 
         for (const [key, value] of data.entries()) {
             console.log(key, value)
         }       
 
-        for (const [key, value] of data.entries()) {
-        console.log(key, value)
-        }
+        
         //const response = await fetch(`${API_URL}/api/mainroutes/`
         const response = await fetch('/api/mainroutes/', {
             method: 'POST',
@@ -77,7 +75,7 @@ const FormFour = () => {
             console.log('Successful', json)
             setError(null)
             setEmptyFields([])
-            navigate('/#events')
+            navigate('/dashboard')
         }
     }
     const handleBackBtn = () => {
@@ -173,9 +171,16 @@ const FormFour = () => {
 
         <button
             className="form-btn"
-            onClick={handleSubmit}
+            onClick={() => handleSubmit('draft')}
         >
-            Finish ✓
+            Save Draft 
+        </button>
+
+        <button
+            className="form-btn"
+            onClick={() => handleSubmit('published')}
+        >
+            Publish ✓
         </button>
 
         {error && <div className="error-message">{error}</div>}
