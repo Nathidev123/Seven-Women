@@ -39,6 +39,8 @@ const Footer = () => {
                     
                     <a href="/login">Admin</a>
 
+                    <a href="/get-involved">Get Involved</a>
+
                 </div>
 
             </div>

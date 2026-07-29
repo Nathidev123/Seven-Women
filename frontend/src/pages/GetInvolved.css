@@ -1,0 +1,467 @@
+
+/* ==================================================
+   GET INVOLVED
+================================================== */
+
+:root{
+    --burgundy:#7B1E2B;
+    --burgundy-dark:#5A1320;
+    --cream:#F8F4EE;
+    --cream-accent:#E8CFA8;
+    --text:#222;
+    --text-light:#666;
+    --white:#fff;
+    --shadow:0 20px 45px rgba(0,0,0,.08);
+    --radius:24px;
+}
+
+body{
+    background:var(--cream);
+}
+
+/* ==================================================
+   ANIMATIONS
+================================================== */
+
+@keyframes heroReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+body{
+    background:var(--cream);
+}
+/* ==================================================
+   HERO
+================================================== */
+
+.get-involved-container{
+    padding:110px 8%;
+    background:linear-gradient(
+        rgba(123,30,43,.90),
+        rgba(90,19,32,.90)
+    );
+    color:white;
+    text-align:center;
+}
+
+.header{
+    max-width:900px;
+    margin:auto;
+}
+
+.header h1{
+
+    font-size:3.5rem;
+    margin-bottom:25px;
+    letter-spacing:-1px;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+
+}
+
+.header p{
+
+    font-size:1.1rem;
+    line-height:2;
+    color:#f6f6f6;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:.2s;
+
+}
+
+/* ==================================================
+   WAYS TO HELP
+================================================== */
+
+.ways-involved-section{
+    padding:100px 8%;
+    background:var(--cream);
+}
+
+.ways-involved{
+    max-width:950px;
+    margin:auto;
+}
+
+.ways-involved h1{
+    color:var(--burgundy);
+    font-size:2rem;
+    margin-top:60px;
+    margin-bottom:18px;
+    position:relative;
+    padding-bottom:12px;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.ways-involved h1:first-child{
+    margin-top:0;
+}
+
+.ways-involved h1::after{
+    content:"";
+    width:70px;
+    height:4px;
+    background:var(--cream-accent);
+    position:absolute;
+    bottom:0;
+    left:0;
+    border-radius:999px;
+}
+
+.ways-involved p{
+    color:var(--text-light);
+    line-height:2;
+    font-size:1.05rem;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:.2s;
+}
+
+/* ==================================================
+   DONATION SECTION
+================================================== */
+
+.donate-container{
+    padding:100px 8%;
+    background:linear-gradient(
+        135deg,
+        var(--burgundy),
+        var(--burgundy-dark)
+    );
+}
+
+.donate-div{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    color:white;
+}
+
+.donate-div h1{
+    font-size:2.8rem;
+    margin-bottom:20px;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.donate-div p{
+    line-height:2;
+    font-size:1.08rem;
+    color:#ececec;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:.2s;
+}
+
+/* ==================================================
+   CONTACT INFO
+================================================== */
+
+.get-involved{
+    padding:100px 8%;
+    background:white;
+}
+
+.involved{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.involved h1{
+    color:var(--burgundy);
+    font-size:2.6rem;
+    margin-bottom:25px;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.involved p{
+    color:var(--text-light);
+    line-height:2;
+    margin-bottom:15px;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:.2s;
+}
+
+.involved p:nth-last-child(-n+3){
+    font-weight:600;
+    color:var(--text);
+}
+/* ==================================================
+   CONTACT DETAILS
+================================================== */
+
+.contact-details{
+
+    max-width:700px;
+
+    margin:60px auto 0;
+
+}
+
+.contact-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    padding:28px 0;
+
+    border-bottom:1px solid rgba(123,30,43,.15);
+
+}
+
+.contact-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.contact-icon{
+
+    font-size:1.6rem;
+
+    color:var(--burgundy);
+
+    margin-top:4px;
+
+    flex-shrink:0;
+
+}
+
+.contact-item h3{
+
+    color:var(--burgundy);
+
+    margin-bottom:8px;
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+}
+
+.contact-item p{
+
+    margin:0;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+.contact-item a {
+    text-decoration: none;
+    margin:0;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+}
+/* ==================================================
+   EMAIL FORM
+================================================== */
+
+.email-container{
+    padding:100px 8%;
+    background:var(--cream);
+}
+
+.email-form{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:50px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+}
+
+.emailForm{
+    display:flex;
+    flex-direction:column;
+}
+
+.emailForm h1{
+    text-align:center;
+    color:var(--burgundy);
+    margin-bottom:40px;
+    font-size:2.4rem;
+}
+
+.emailForm input,
+.emailForm textarea{
+
+    width:100%;
+
+    padding:18px 20px;
+
+    margin-bottom:20px;
+
+    border:2px solid #ececec;
+
+    border-radius:16px;
+
+    font-size:1rem;
+
+    transition:.3s;
+
+    background:#fcfcfc;
+}
+
+.emailForm input:focus,
+.emailForm textarea:focus{
+
+    outline:none;
+
+    border-color:var(--cream-accent);
+
+    box-shadow:0 0 0 4px rgba(232,207,168,.35);
+
+}
+
+.emailForm textarea{
+
+    resize:vertical;
+
+    min-height:180px;
+
+}
+
+.emailForm button{
+
+    margin-top:15px;
+
+    padding:18px;
+
+    background:var(--burgundy);
+
+    color:white;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.emailForm button:hover{
+
+    background:var(--burgundy-dark);
+
+    transform:translateY(-3px);
+
+}
+
+/* ==================================================
+   ALERTS
+================================================== */
+
+.alert{
+
+    margin-top:25px;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    font-weight:600;
+
+}
+
+.alert-success{
+
+    background:#EAF7EC;
+
+    color:#1F6A33;
+
+    border:1px solid #BFE5C7;
+
+}
+
+.alert-error{
+
+    background:#FDECEC;
+
+    color:#8B1E2D;
+
+    border:1px solid #F5C2C7;
+
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:900px){
+
+    .header h1{
+        font-size:2.8rem;
+    }
+
+    .donate-div h1,
+    .involved h1{
+        font-size:2.2rem;
+    }
+
+    .email-form{
+        padding:35px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .get-involved-container,
+    .ways-involved-section,
+    .donate-container,
+    .get-involved,
+    .email-container{
+        padding:70px 6%;
+    }
+
+    .header h1{
+        font-size:2.2rem;
+    }
+
+    .ways-involved h1{
+        font-size:1.6rem;
+    }
+
+    .email-form{
+        padding:25px;
+    }
+
+}

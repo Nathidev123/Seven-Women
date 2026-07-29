@@ -2,6 +2,7 @@ import "./PeaceInitiative.css"
 import Enyobeni from '../assets/MC.jpg'
 import enyobeni21 from "../data/enyobeniData"
 import { useNavigate } from "react-router-dom"
+
 const PeaceInitiative = () => {
     const navigate = useNavigate()
     return (
@@ -37,8 +38,16 @@ const PeaceInitiative = () => {
                     </p>
 
 
-                    <button className="peace-button">
-                        Learn Their Story
+                   <button
+                    className="peace-button"
+                    onClick={() => {
+                        document.getElementById("action")?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                        });
+                    }}
+                    >
+                    Read More
                     </button>
 
 
@@ -119,52 +128,43 @@ const PeaceInitiative = () => {
 
             </section>
 
+            {/* CALL TO ACTION */}
+            <section className="story-section" 
+            id="action">
 
 
-            {/* PURPOSE */}
+                <div className="story-header">
+                <span className="section-tag">
+                        A Call To Action 
+                        </span>
+                    
 
+                    <div className="story-divider">
+                    
+                    </div>
 
+                    <div className="story-content">
+                    <p>This concept note has been drafted by Eight Women, who have chosen to accept responsibility for their role in responding to this tragedy. Two of the women grew up in the Eastern Cape and can testify to the love, guidance, and support they received from their families, communities, and educational institutions—support that helped shape different futures for them. The remaining six women, from Mpumalanga, Gauteng, North West, the Free State, and the Western Cape, have likewise dedicated themselves to strengthening the communities from which they come.
 
-            <section className="purpose-section">
+Together, the Eight Women have worked across social, cultural, and legal spheres. They understand that none of them is self-made. Each is the product of countless acts of care, mentorship, opportunity, and intervention. They also recognise that their own life experiences are exceptions rather than the norm. Too many young people in South Africa are born into circumstances where unemployment, alcohol abuse, substance dependency, and despair become more likely outcomes than opportunity and hope.
 
+As they come together, the Eight Women acknowledge that meaningful change requires more than individual success. It requires bringing others along, creating opportunities for collective healing, and working alongside communities to build a future in which every young person has the chance to thrive.
 
-                <div className="purpose-content">
-
-
-                    <h2>
-                        Why We Are Here
-                    </h2>
-
-
-                    <p>
-                        The Enyobeni 21 Peace Initiative was created
-                        to provide a platform for remembrance,
-                        healing and meaningful conversations within
-                        communities.
-                    </p>
-
-
-                    <p>
-                        Through unity, dialogue and compassion,
-                        the initiative seeks to honour those lost
-                        while supporting families and encouraging
-                        safer communities.
-                    </p>
-
-
+The Eight Women approached the families of the children who died at Enyobeni with a request to work alongside them. At the heart of this partnership is the belief that every African life is deeply significant and that every death is a loss not only to a family, but to an entire community. Together, they seek to honour the lives of the Enyobeni 21 by ensuring that they are remembered not only for the tragedy that claimed them, but for the futures they deserved to live.
+</p>
+                
                 </div>
-
-
-
+                </div>
             </section>
 
 
-            {/* CALL TO ACTION */}
+
+            
 
 
             <section className="peace-cta">
-
-
+            <div className="peace-cta-content">
+                
                 <h2>
                     Continue The Journey Of Healing
                 </h2>
@@ -177,10 +177,10 @@ const PeaceInitiative = () => {
                 </p>
 
 
-                <button>
+                <button onClick={() => navigate('/get-involved')}>
                     Support The Initiative
                 </button>
-
+            </div>
 
             </section>
 

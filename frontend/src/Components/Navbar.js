@@ -37,9 +37,9 @@ const Navbar = () => {
 
                     <Link to="/#events">Events</Link>
 
-                    <Link to="/#events">Calendar</Link>
-
                     <Link to="/#members">Members</Link>
+
+                    <Link to="/get-involved">Get Involved</Link>
 
                 </nav>
 

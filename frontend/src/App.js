@@ -17,6 +17,7 @@ import MemberProfile from './pages/MemberProfile';
 import Dashboard from './pages/Dashboard';
 import AdminEventPage from './pages/AdminEventPage';
 import Archives from './pages/Archives';
+import GetInvolved from './pages/GetInvolved';
 
 function App() {
   return (
@@ -99,6 +100,11 @@ function App() {
     <Route
     path='/archives'
     element={<Archives/>}
+    />
+
+    <Route
+    path='/get-involved'
+    element={<GetInvolved/>}
     />
     
     </Routes>
