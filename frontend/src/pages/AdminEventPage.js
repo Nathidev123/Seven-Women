@@ -154,6 +154,7 @@ const navigate = useNavigate()
                         </div>
         
                         <div className="event-hero-image">
+                            <p>Change Image</p>
                     {isEditing && (
                 <input
                     type="file"

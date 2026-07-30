@@ -1,0 +1,248 @@
+/* ==================================================
+   CALL TO ACTION
+================================================== */
+
+.contact-us{
+     width:100vw;
+
+    margin-left:calc(50% - 50vw);
+
+    margin-right:calc(50% - 50vw);
+    
+    position:relative;
+
+    overflow:hidden;
+
+    padding:110px 8%;
+
+    background:linear-gradient(
+        135deg,
+        var(--burgundy),
+        var(--burgundy-dark)
+    );
+
+    color:white;
+
+}
+
+/* Soft background glow */
+
+.contact-us::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+        radial-gradient(rgba(255,255,255,.06) 1.2px, transparent 1.2px);
+
+    background-size:38px 38px;
+
+    opacity:.45;
+
+    pointer-events:none;
+
+}
+
+.contact-us::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    background:rgba(232,207,168,.10);
+
+    right:-120px;
+
+    bottom:-180px;
+
+    filter:blur(35px);
+
+}
+
+.contact{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:850px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.contact h1{
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+    line-height:1.2;
+
+    opacity:0;
+
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+
+}
+
+.contact p{
+
+    max-width:700px;
+
+    margin:0 auto 45px;
+
+    line-height:2;
+
+    font-size:1.08rem;
+
+    color:rgba(255,255,255,.92);
+
+    opacity:0;
+
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+
+    animation-delay:.2s;
+
+}
+
+/* ==================================================
+   BUTTON
+================================================== */
+
+.contact button{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:18px 44px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:white;
+
+    color:var(--burgundy);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:all .35s ease;
+
+    box-shadow:0 18px 40px rgba(0,0,0,.20);
+
+    opacity:0;
+
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+
+    animation-delay:.4s;
+
+}
+.contact button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.65),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    transition:.7s;
+
+}
+.contact button:hover{
+
+    background:var(--cream);
+
+    transform:translateY(-5px) scale(1.03);
+
+    box-shadow:0 28px 55px rgba(0,0,0,.28);
+
+}
+
+.contact button:hover::before{
+
+    left:160%;
+
+}
+
+.contact button:active{
+
+    transform:translateY(-2px) scale(.98);
+
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:900px){
+
+    .contact h1{
+
+        font-size:2.4rem;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .contact-us{
+
+        padding:75px 6%;
+
+    }
+
+    .contact h1{
+
+        font-size:2rem;
+
+    }
+
+    .contact p{
+
+        font-size:1rem;
+
+        line-height:1.9;
+
+    }
+
+    .contact button{
+
+        width:100%;
+
+        max-width:320px;
+
+    }
+
+}

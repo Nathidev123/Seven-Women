@@ -6,6 +6,8 @@ import OpinionPiece from "../Components/OpinionPiece"
 import EnyobeniInitiative from '../Components/EnyobeniInitiative'
 import { useEventDetailsContext } from "../hooks/useEventDetailsContext"
 import EventsCalendar from "../Components/Calendar"
+import GetInvolvedComponent from "../Components/GetInvolvedComponent"
+import WhatWeDo from "../Components/WhatWeDo"
 import { Link } from 'react-router-dom'
 import { useEffect } from "react"
 import { useRef } from 'react'
@@ -75,7 +77,7 @@ const Home = () => {
         <BeliefCards />
 
         </section>
-
+        
 
         {/* Events */}
           <section id="events" className="events-section">
@@ -170,10 +172,19 @@ const Home = () => {
         <VisionMission />
     </section>
 
+    {/* WhatWeDo */}
+        <section id="what-we-do">
+        <div className="what-we-do-div">
+        <WhatWeDo  />
+        </div>
+        </section>
+
+    
     <section className="opinion-piece-section">
         <h1>Our Opinion Piece</h1>
         <OpinionPiece />
     </section>
+    <GetInvolvedComponent />
         </>
     )
 }

@@ -1,0 +1,450 @@
+/* ==================================================
+   OUR WORK
+================================================== */
+
+:root{
+    --burgundy:#7B1E2B;
+    --burgundy-dark:#5A1320;
+    --cream:#F8F4EE;
+    --cream-accent:#E8CFA8;
+    --text:#222;
+    --text-light:#666;
+    --shadow:0 20px 45px rgba(0,0,0,.08);
+    --radius:24px;
+}
+
+/* ==================================================
+   ANIMATION
+================================================== */
+
+@keyframes heroReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==================================================
+   HERO
+================================================== */
+
+.our-work-container{
+    
+    padding:110px 8%;
+    background:white;
+
+}
+
+.our-work-section{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:42% 58%;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.eight-div{
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+
+}
+
+.eight-div img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:28px;
+
+    object-fit:cover;
+
+}
+
+.our-work-text{
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:.2s;
+
+}
+
+.our-work-text h1{
+
+    color:var(--burgundy);
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+    line-height:1.15;
+
+    position:relative;
+
+    padding-bottom:18px;
+
+}
+
+.our-work-text h1::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:80px;
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:var(--cream-accent);
+
+}
+
+.our-work-text p{
+
+    color:var(--text-light);
+
+    line-height:2;
+
+    font-size:1.05rem;
+
+}
+
+/* ==================================================
+   PILLARS
+================================================== */
+
+.pillars-section{
+
+    padding:100px 8%;
+
+    background:var(--cream);
+
+}
+
+.pillars-heading{
+
+    max-width:800px;
+
+    margin:0 auto 70px;
+
+    text-align:center;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:.2s;
+
+}
+
+.pillars-heading h1{
+
+    color:var(--burgundy);
+
+    font-size:2.7rem;
+
+    margin-bottom:18px;
+
+    position:relative;
+
+    display:inline-block;
+
+    padding-bottom:15px;
+
+}
+
+.pillars-heading h1::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:0;
+
+    width:70px;
+
+    height:4px;
+
+    background:var(--cream-accent);
+
+    border-radius:999px;
+
+}
+
+.pillars-heading p{
+
+    color:var(--text-light);
+
+    line-height:2;
+
+}
+
+/* ==================================================
+   GRID
+================================================== */
+
+.pillars-grid{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+/* ==================================================
+   PILLARS
+================================================== */
+
+.pillar-div{
+
+    position:relative;
+
+    padding:35px 28px;
+
+    border-right:1px solid rgba(123,30,43,.18);
+
+    border-bottom:1px solid rgba(123,30,43,.18);
+
+    transition:.35s ease;
+
+    opacity:0;
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+
+}
+
+.pillar-div:nth-child(1){animation-delay:.15s;}
+.pillar-div:nth-child(2){animation-delay:.25s;}
+.pillar-div:nth-child(3){animation-delay:.35s;}
+.pillar-div:nth-child(4){animation-delay:.45s;}
+.pillar-div:nth-child(5){animation-delay:.55s;}
+.pillar-div:nth-child(6){animation-delay:.65s;}
+.pillar-div:nth-child(7){animation-delay:.75s;}
+.pillar-div:nth-child(8){animation-delay:.85s;}
+
+.pillar-div:nth-child(4n){
+
+    border-right:none;
+
+}
+
+.pillar-div:nth-last-child(-n+4){
+
+    border-bottom:none;
+
+}
+
+.pillar-div h2{
+
+    position:relative;
+
+    padding-bottom:18px;
+
+    margin-bottom:18px;
+
+}
+.pillar-div h2::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:0;
+
+    height:3px;
+
+    background:var(--burgundy);
+
+    transition:.35s;
+
+}
+.pillar-div:hover h2::after{
+
+    width:55px;
+
+}
+
+.pillar-div p{
+
+    color:var(--text-light);
+
+    line-height:1.9;
+
+    font-size:.98rem;
+
+}
+
+/* ==================================================
+   HOVER
+================================================== */
+
+.pillar-div::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+
+    top:78px;
+
+    width:0;
+
+    height:3px;
+
+    background:var(--burgundy);
+
+    transition:.35s;
+
+}
+
+.pillar-div:hover{
+
+    background:rgba(123,30,43,.025);
+
+    padding-left:40px;
+
+}
+
+
+
+.pillar-div:hover h2{
+
+    color:var(--burgundy-dark);
+
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:1100px){
+
+    .our-work-section{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+    }
+
+    .our-work-text{
+
+        text-align:center;
+
+    }
+
+    .our-work-text h1::after{
+
+        left:50%;
+        transform:translateX(-50%);
+
+    }
+
+    .eight-div{
+
+        max-width:500px;
+
+        margin:auto;
+
+    }
+
+    .pillars-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .pillar-div{
+
+        border-right:1px solid rgba(123,30,43,.18);
+
+    }
+
+    .pillar-div:nth-child(2n){
+
+        border-right:none;
+
+    }
+
+    .pillar-div:nth-last-child(-n+2){
+
+        border-bottom:none;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .our-work-container,
+    .pillars-section{
+
+        padding:70px 6%;
+
+    }
+
+    .our-work-text h1{
+
+        font-size:2.3rem;
+
+    }
+
+    .pillars-heading h1{
+
+        font-size:2rem;
+
+    }
+
+    .pillars-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .pillar-div{
+
+        border-right:none;
+
+        border-bottom:1px solid rgba(123,30,43,.18);
+
+    }
+
+    .pillar-div:last-child{
+
+        border-bottom:none;
+
+    }
+
+}

@@ -1,0 +1,161 @@
+
+/* Animations */
+@keyframes heroReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+/* ==================================================
+   WHAT WE DO
+================================================== */
+
+.what-we-do{
+    padding:110px 8%;
+    background:
+        radial-gradient(circle, rgba(123,30,43,.05) 1px, transparent 1px);
+    background-size:32px 32px;
+    background-color:#fff;
+}
+
+.header1{
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.header1 h1{
+
+    color:var(--burgundy);
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+    position:relative;
+
+    display:inline-block;
+
+    padding-bottom:15px;
+
+    opacity:0;
+
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+
+}
+
+.header1 h1::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:80px;
+
+    height:4px;
+
+    background:var(--cream-accent);
+
+    border-radius:999px;
+
+}
+
+.header1 p{
+
+    max-width:760px;
+
+    margin:0 auto;
+
+    font-size:1.08rem;
+
+    line-height:2;
+
+    color:var(--text-light);
+
+    opacity:0;
+
+    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+
+    animation-delay:.2s;
+
+}
+.what-we-do button {
+       margin-top:15px;
+
+    padding:18px;
+
+    background:var(--burgundy);
+
+    color:white;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s; 
+}
+.what-we-do button:hover{
+    background:var(--burgundy-dark);
+
+    transform:translateY(-3px);
+}
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:900px){
+
+    .header1 h1{
+
+        font-size:2.5rem;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .what-we-do{
+
+        padding:70px 6%;
+
+    }
+
+    .header1 h1{
+
+        font-size:2rem;
+
+    }
+
+    .header1 p{
+
+        font-size:1rem;
+
+        line-height:1.9;
+
+    }
+
+}

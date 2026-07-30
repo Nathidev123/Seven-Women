@@ -1,9 +1,20 @@
 import "./Footer.css";
-
+import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 const Footer = () => {
-
+    const navigate = useNavigate()
+    const { user } = useAuthContext()
     const year = new Date().getFullYear();
 
+    const handleAdmin = () => {
+        if(!user){
+            navigate('/login')
+        }
+        else{
+            navigate('/dashboard')
+        }
+        
+    }
     return (
 
         <footer className="footer">
@@ -37,7 +48,7 @@ const Footer = () => {
 
                     <a href="/#about">About</a>
                     
-                    <a href="/login">Admin</a>
+                    <button onClick={handleAdmin}>Admin</button>
 
                     <a href="/get-involved">Get Involved</a>
 
@@ -61,3 +72,4 @@ const Footer = () => {
 
 export default Footer;
 /*<a href="/contact">Contact</a>*/
+/* <a { `${user} ? '/dashboard' : '/#admin'`}>Admin</a>*/

@@ -18,7 +18,7 @@ const BeliefCards = () => {
                     <h1>Who We Are</h1>
 
                     <p>
-                        We are a collective of seven women united by a shared
+                        We are a collective of eight women united by a shared
                         commitment to building peaceful, resilient and inclusive
                         communities across South Africa. Through dialogue,
                         education and community engagement, we work alongside

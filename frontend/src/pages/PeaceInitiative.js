@@ -1,11 +1,13 @@
 import "./PeaceInitiative.css"
 import Enyobeni from '../assets/MC.jpg'
+import GetInvolvedComponent from "../Components/GetInvolvedComponent"
 import enyobeni21 from "../data/enyobeniData"
 import { useNavigate } from "react-router-dom"
 
 const PeaceInitiative = () => {
     const navigate = useNavigate()
     return (
+        <>
         <main className="peace-page">
 
         <button
@@ -157,35 +159,10 @@ The Eight Women approached the families of the children who died at Enyobeni wit
                 </div>
             </section>
 
-
-
-            
-
-
-            <section className="peace-cta">
-            <div className="peace-cta-content">
-                
-                <h2>
-                    Continue The Journey Of Healing
-                </h2>
-
-
-                <p>
-                    Join us in remembering the Enyobeni 21 and
-                    building communities founded on compassion,
-                    understanding and peace.
-                </p>
-
-
-                <button onClick={() => navigate('/get-involved')}>
-                    Support The Initiative
-                </button>
-            </div>
-
-            </section>
-
-
+           
         </main>
+        <GetInvolvedComponent />
+        </>
     )
 }
 

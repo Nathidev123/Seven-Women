@@ -18,6 +18,8 @@ import Dashboard from './pages/Dashboard';
 import AdminEventPage from './pages/AdminEventPage';
 import Archives from './pages/Archives';
 import GetInvolved from './pages/GetInvolved';
+import OurWork from './pages/OurWork';
+import GetInvolvedComponent from './Components/GetInvolvedComponent';
 
 function App() {
   return (
@@ -105,6 +107,16 @@ function App() {
     <Route
     path='/get-involved'
     element={<GetInvolved/>}
+    />
+
+    <Route
+    path='/our-work'
+    element={<OurWork/>}
+    />
+    
+    <Route
+    path='/involved-component'
+    element={<GetInvolvedComponent/>}
     />
     
     </Routes>

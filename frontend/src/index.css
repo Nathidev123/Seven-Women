@@ -2809,31 +2809,6 @@ input[type=file]{
     line-height:1.6;
 }
 
-/* ==========================================
-   Main Sections
-========================================== */
-
-.event-section,
-.event-contact{
-    background:#ffffff;
-    border-radius:28px;
-    padding:45px;
-    border:1px solid #ececec;
-    margin-bottom:60px;
-    box-shadow:0 12px 35px rgba(0,0,0,.04);
-}
-
-.event-section h2,
-.event-contact h2{
-    color:#111111;
-    font-size:2rem;
-    margin-bottom:25px;
-}
-
-.event-section p{
-    color:#5f6368;
-    line-height:2;
-}
 
 /* ==========================================
    Detail Cards

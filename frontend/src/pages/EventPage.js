@@ -191,19 +191,7 @@ const EventPage = () => {
 
             </section>
 
-            {/* ABOUT */}
-
-            <section className="event-section">
-
-                <h2>
-                    About This Event
-                </h2>
-
-                <p>
-                    {event.event_description}
-                </p>
-
-            </section>
+            
            
             
 
