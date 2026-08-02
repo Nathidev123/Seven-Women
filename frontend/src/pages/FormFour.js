@@ -129,7 +129,12 @@ const FormFour = () => {
         <form>
 
             <div className="form-header">
-                <span className="step">Step 4 of 4</span>
+               <div className="form-progress">
+                <div
+                    className="progress-fill"
+                    style={{ width: "100%" }}
+                ></div>
+            </div>
 
                 <h1>
                     Lastly, capacity and dress code

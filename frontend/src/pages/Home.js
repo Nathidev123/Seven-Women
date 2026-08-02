@@ -8,7 +8,6 @@ import { useEventDetailsContext } from "../hooks/useEventDetailsContext"
 import EventsCalendar from "../Components/Calendar"
 import GetInvolvedComponent from "../Components/GetInvolvedComponent"
 import WhatWeDo from "../Components/WhatWeDo"
-import { Link } from 'react-router-dom'
 import { useEffect } from "react"
 import { useRef } from 'react'
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -49,24 +48,24 @@ const Home = () => {
     //, API_URL WAS IN dependancy array above
     return(
         <>
-        <Link to='/signup'></Link>
+       
         <section className="hero-section">   
-         <h1>Eight Women. One Vision. A Future South Africa Built On Peace.</h1>
+         {/*<h1>Eight Women. One Vision. A Future South Africa Built On Peace.</h1>*/}
         {/* MEMBERS */}
  
-    <div className="half-section">
-    <section id="members" className="members-section">
+    {/*<div className="half-section">
+    <section id="members" className="members-section">*/}
 
-        <h1 className="meet-members">Meet The Eight Women</h1>
+        <h1 className="meet-members"></h1>
 
         {/* Member Cards */}
         <MemberCards />
         
     </section>
-       </div> 
+       {/*</div> 
         {/* this to open a section on the same page */}
         
-        </section>
+        {/*</section>*/}
         
         <section className="initiative-section">
             <EnyobeniInitiative />
@@ -84,7 +83,7 @@ const Home = () => {
 
         <div className="events-header">
 
-            <h1>Upcoming Events</h1>
+            
 
         </div>
 
@@ -168,7 +167,7 @@ const Home = () => {
 
     <section className="mission-section">
 
-        <h1>Mission & Vision</h1>
+        
         <VisionMission />
     </section>
 
@@ -181,7 +180,7 @@ const Home = () => {
 
     
     <section className="opinion-piece-section">
-        <h1>Our Opinion Piece</h1>
+       
         <OpinionPiece />
     </section>
     <GetInvolvedComponent />

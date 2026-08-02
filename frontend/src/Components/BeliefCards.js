@@ -5,17 +5,53 @@ import {
     FaHeart
 } from "react-icons/fa";
 
+
+
 const BeliefCards = () => {
+
+    const beliefs = [
+        {
+            number: "01",
+            icon: <FaDove />,
+            title: "Peace",
+            text: "We believe peace begins with dialogue, understanding and mutual respect."
+        },
+        {
+            number: "02",
+            icon: <FaBalanceScale />,
+            title: "Justice",
+            text: "We advocate for fairness, dignity and accountability in every community."
+        },
+        {
+            number: "03",
+            icon: <FaHandsHelping />,
+            title: "Community",
+            text: "We strengthen communities through collaboration, trust and collective action."
+        },
+        {
+            number: "04",
+            icon: <FaHeart />,
+            title: "Healing",
+            text: "We believe lasting change begins with healing individuals, families and communities."
+        }
+    ];
+
     return (
+
         <section className="who-we-are">
 
             <div className="who-content">
 
                 <div className="who-text">
 
-                    <span className="section-tag">ABOUT US</span>
+                    <span className="section-tag">
+                        ABOUT US
+                    </span>
 
-                    <h1>Who We Are</h1>
+                    <h1>
+                        Building Peace,<br />
+                        One Community at a Time.
+                    </h1>
 
                     <p>
                         We are a collective of eight women united by a shared
@@ -29,56 +65,44 @@ const BeliefCards = () => {
 
                 </div>
 
-                <div className="belief-path">
-               
-                    <div className="belief-step">
-                        <FaDove className="belief-icon"/>
-                        <div>
-                        <h2>Peace</h2>
-                        <p>
-                            We believe peace begins with dialogue,
-                            understanding and mutual respect.
-                        </p>
-                        </div>
-                    </div>
+                <div className="belief-timeline">
 
-                    <div className="belief-step">
-                        <FaBalanceScale className="belief-icon"/>
-                        <div>
-                        <h2>Justice</h2>
-                        <p>
-                            We advocate for fairness, dignity and accountability
-                            in every community.
-                        </p>
-                        </div>
-                    </div>
+                    {beliefs.map((belief) => (
 
-                    <div className="belief-step">
-                        <FaHandsHelping className="belief-icon"/>
-                        <div>
-                        <h2>Community</h2>
-                        <p>
-                            We strengthen communities through collaboration,
-                            trust and collective action.
-                        </p>
-                        </div>
-                    </div>
+                        <div
+                            key={belief.number}
+                            className="belief-step"
+                        >
 
-                    <div className="belief-step">
-                        <FaHeart className="belief-icon"/>
-                        <h2>Healing</h2>
-                        <p>
-                            We believe lasting change begins with healing
-                            individuals, families and communities.
-                        </p>
-                    </div>
+                            <span className="belief-number">
+                                {belief.number}
+                            </span>
+
+                            <div className="belief-icon">
+
+                                {belief.icon}
+
+                            </div>
+
+                            <div className="belief-info">
+
+                                <h2>{belief.title}</h2>
+
+                                <p>{belief.text}</p>
+
+                            </div>
+
+                        </div>
+
+                    ))}
 
                 </div>
 
             </div>
 
         </section>
-    )
-}
 
-export default BeliefCards
+    );
+};
+
+export default BeliefCards;

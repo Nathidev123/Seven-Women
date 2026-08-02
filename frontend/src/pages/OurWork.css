@@ -13,22 +13,44 @@
     --radius:24px;
 }
 
-/* ==================================================
-   ANIMATION
-================================================== */
 
-@keyframes heroReveal{
+/* ==========================================
+   REVEAL ANIMATIONS
+========================================== */
 
-    from{
-        opacity:0;
-        transform:translateY(35px);
-    }
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale{
+    opacity:0;
+    transition:
+        opacity .9s cubic-bezier(.22,1,.36,1),
+        transform .9s cubic-bezier(.22,1,.36,1);
+    will-change:opacity, transform;
+}
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.reveal{
+    transform:translateY(60px);
+}
 
+.reveal-left{
+    transform:translateX(-60px);
+}
+
+.reveal-right{
+    transform:translateX(60px);
+}
+
+.reveal-scale{
+    transform:scale(.9);
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active{
+    opacity:1;
+    transform:translate(0,0) scale(1);
 }
 
 /* ==================================================
@@ -58,12 +80,7 @@
 
 }
 
-.eight-div{
 
-    opacity:0;
-    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
-
-}
 
 .eight-div img{
 
@@ -77,13 +94,7 @@
 
 }
 
-.our-work-text{
 
-    opacity:0;
-    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
-    animation-delay:.2s;
-
-}
 
 .our-work-text h1{
 
@@ -150,10 +161,6 @@
     margin:0 auto 70px;
 
     text-align:center;
-
-    opacity:0;
-    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
-    animation-delay:.2s;
 
 }
 
@@ -224,7 +231,6 @@
 ================================================== */
 
 .pillar-div{
-
     position:relative;
 
     padding:35px 28px;
@@ -233,21 +239,11 @@
 
     border-bottom:1px solid rgba(123,30,43,.18);
 
-    transition:.35s ease;
-
-    opacity:0;
-    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
-
+    transition:
+        background .35s ease,
+        padding-left .35s ease,
+        color .35s ease;
 }
-
-.pillar-div:nth-child(1){animation-delay:.15s;}
-.pillar-div:nth-child(2){animation-delay:.25s;}
-.pillar-div:nth-child(3){animation-delay:.35s;}
-.pillar-div:nth-child(4){animation-delay:.45s;}
-.pillar-div:nth-child(5){animation-delay:.55s;}
-.pillar-div:nth-child(6){animation-delay:.65s;}
-.pillar-div:nth-child(7){animation-delay:.75s;}
-.pillar-div:nth-child(8){animation-delay:.85s;}
 
 .pillar-div:nth-child(4n){
 

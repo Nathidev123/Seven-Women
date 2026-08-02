@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useEventFormContext } from "../hooks/useEventFormContext"
 import { useState } from "react"
-
+import './Forms.css'
 const FormOne = () => {
     const [emptyFields] = useState([])
     const { formData, dispatch2 } = useEventFormContext()
@@ -32,6 +32,7 @@ const navigate = useNavigate()
 
     <div className="event-form-card">
 
+
         <button
             className="back-btn"
             onClick={handleBackBtn}
@@ -42,7 +43,12 @@ const navigate = useNavigate()
         <form>
 
             <div className="form-header">
-                <span className="step">Step 1 of 4</span>
+               <div className="form-progress">
+            <div
+                className="progress-fill"
+                style={{ width: "25%" }}
+            ></div>
+        </div>
 
                 <h1>
                     Let's start with the organizer and event details.
@@ -53,6 +59,7 @@ const navigate = useNavigate()
                 </p>
             </div>
 
+            <div className="form-group">
             <input
                 placeholder="Organizer"
                 name="organizer"
@@ -60,8 +67,9 @@ const navigate = useNavigate()
                 onChange={handleChange}
                 className={emptyFields.includes('organizer') ? 'error' : ''}
             />
-            <br />
+           </div>
 
+            <div className="form-group">
             <input
                 placeholder="Email"
                 type="email"
@@ -70,8 +78,9 @@ const navigate = useNavigate()
                 onChange={handleChange}
                 className={emptyFields.includes('contact_email') ? 'error' : ''}
             />
-            <br />
+            </div>
 
+            <div className="form-group">
             <input
                 placeholder="Phone Number"
                 name="contact_phone"
@@ -79,8 +88,9 @@ const navigate = useNavigate()
                 onChange={handleChange}
                 className={emptyFields.includes('contact_phone') ? 'error' : ''}
             />
-            <br />
+            </div>
 
+            <div className="form-group">
             <input
                 placeholder="Event Name"
                 name="event_name"
@@ -88,8 +98,9 @@ const navigate = useNavigate()
                 onChange={handleChange}
                 className={emptyFields.includes('event_name') ? 'error' : ''}
             />
-            <br />
+            </div>
 
+            <div className="form-group">
             <textarea
                 placeholder="Description"
                 name="event_description"
@@ -98,8 +109,9 @@ const navigate = useNavigate()
                 className={emptyFields.includes('event_description') ? 'error' : ''}
                 rows={5}
             />
-            <br />
+            </div>
 
+            <div className="form-group">
             <input
                 placeholder="Location"
                 name="location"
@@ -107,7 +119,7 @@ const navigate = useNavigate()
                 onChange={handleChange}
                 className={emptyFields.includes('location') ? 'error' : ''}
             />
-            <br />
+            </div>
 
         </form>
 

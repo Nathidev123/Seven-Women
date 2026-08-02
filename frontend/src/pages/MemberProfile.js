@@ -1,61 +1,147 @@
-import members from "../data/members"
-import { useNavigate, useParams } from "react-router-dom"
-import "../Components/MemberProfile.css"
+import members from "../data/members";
+import { useParams } from "react-router-dom";
+import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import "./MemberProfile.css";
+
 const MemberProfile = () => {
     const { id } = useParams();
-    const navigate = useNavigate()
+    
 
     const member = members.find(
         (m) => m.id === Number(id)
-    )
+    );
 
-    if(!member){
-        return <h2>Member not found</h2>
+    if (!member) {
+        return (
+            <div className="member-not-found">
+                <h2>Member not found</h2>
+            </div>
+        );
     }
 
-    return(<>
-        <button
-         className="back-btn"
-        onClick={() => navigate(-1)}
-        >
-            ← Back
-        </button>
+    return (
+        <main className="member-page">
 
-        <div className="member-page">
-        
-        <img
-            src={member.image}
-            alt={member.name}
-            className="member-profile-image"
-        />
-        <h2 className="name-section">{member.name}</h2>
-        <h2>{member.role}</h2>
-        <p className="member-bio">{member.bio}</p>
+            
 
-        <h3>Contact</h3>
-        <p>{member.email}</p>
-        <p>{member.phone}</p>
+            
 
-        <h3>Interviews</h3>
+            <section className="profile-hero">
 
-        {member.videos?.map((video, index) => (
-            <div key={index} className="member-video">
-                <h3>{video.title}</h3>
+                <div className="profile-image-wrapper">
+                    <img
+                        src={member.image}
+                        alt={member.name}
+                        className="member-profile-image"
+                    />
+                </div>
 
-                <iframe
-                    width="100%"
-                    height="315"
-                    src={video.url}
-                    title={video.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; 
-                    encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
-            </div>
-        ))}
-        </div>
-            </>)
-}
+                <div className="profile-info">
 
-export default MemberProfile
+                    <h1>{member.name}</h1>
+
+                    <span className="role-pill">
+                        {member.role}
+                    </span>
+
+
+                </div>
+
+            </section>
+
+            
+
+            <section className="profile-card">
+
+                <h2>About</h2>
+
+                <p className="member-bio">
+                    {member.bio}
+                </p>
+
+            </section>
+
+            
+
+            <section className="profile-card">
+
+                <h2>Contact</h2>
+
+                <div className="contact-list">
+
+                    <div className="contact-row">
+
+                        <FaEnvelope className="contact-icon" />
+
+                        <div>
+
+                            <h4>Email</h4>
+
+                            <p>{member.email}</p>
+
+                        </div>
+
+                    </div>
+
+                    <div className="contact-row">
+
+                        <FaPhoneAlt className="contact-icon" />
+
+                        <div>
+
+                            <h4>Phone</h4>
+
+                            <p>{member.phone}</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            
+            {member.videos && member.videos.length > 0 && (
+
+                <section className="profile-card">
+
+                    <h2>Featured Interviews</h2>
+
+                    <div className="video-grid">
+
+                        {member.videos.map((video, index) => (
+
+                            <div
+                                key={index}
+                                className="video-card"
+                            >
+
+                                <h3>{video.title}</h3>
+
+                                <iframe
+                                    width="100%"
+                                    height="315"
+                                    loading="lazy"
+                                    src={video.url}
+                                    title={video.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+
+                            </div>
+
+                        ))}
+
+                    </div>
+
+                </section>
+
+            )}
+
+        </main>
+    );
+};
+
+export default MemberProfile;

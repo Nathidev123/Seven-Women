@@ -1,30 +1,33 @@
-/* ==================================================
-   EventsCalendar.css
-   ================================================== */
+/*==================================================
+  CALENDAR
+==================================================*/
 
 .calendar-wrapper{
+
     width:100%;
     min-width:0;
 
-    background:#ffffff;
+    background:#fff;
 
-    padding:30px;
+    padding:32px;
 
-    border-radius:24px;
+    border-radius:28px;
 
-    border:1px solid #ececec;
+    border:1px solid rgba(123,30,43,.08);
 
-    box-shadow:
-        0 12px 35px rgba(0,0,0,.06);
+    box-shadow:0 20px 45px rgba(0,0,0,.08);
 
-    transition:.3s ease;
+    transition:.35s;
+
 }
 
-/* ==========================================
-   Toolbar
-========================================== */
+/*==================================================
+  TOOLBAR
+==================================================*/
 
 .fc-header-toolbar{
+
+    margin-bottom:30px !important;
 
     display:flex !important;
 
@@ -34,51 +37,49 @@
 
     flex-wrap:wrap;
 
-    gap:18px;
-
-    margin-bottom:30px !important;
+    gap:20px;
 
 }
 
 .fc-toolbar-title{
 
+    color:var(--burgundy);
+
     font-size:2rem !important;
 
     font-weight:700;
-
-    color:#171717;
 
     letter-spacing:-.5px;
 
 }
 
-/* ==========================================
-   Buttons
-========================================== */
+/*==================================================
+  BUTTONS
+==================================================*/
 
 .fc-button{
 
-    background:#111111 !important;
-
-    color:#ffffff !important;
+    background:var(--burgundy) !important;
 
     border:none !important;
 
-    border-radius:10px !important;
+    border-radius:999px !important;
 
-    padding:10px 18px !important;
+    color:white !important;
+
+    padding:11px 20px !important;
 
     font-weight:600 !important;
 
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    transition:.3s !important;
 
-    transition:all .25s ease !important;
+    box-shadow:none !important;
 
 }
 
 .fc-button:hover{
 
-    background:#b22222 !important;
+    background:var(--burgundy-dark) !important;
 
     transform:translateY(-2px);
 
@@ -86,130 +87,148 @@
 
 .fc-button-active{
 
-    background:#b22222 !important;
-
-    box-shadow:0 10px 22px rgba(178,34,34,.18);
+    background:var(--burgundy-dark) !important;
 
 }
 
-/* ==========================================
-   Calendar Grid
-========================================== */
+.fc-button:focus{
+
+    box-shadow:none !important;
+
+}
+
+/*==================================================
+  GRID
+==================================================*/
 
 .fc-theme-standard .fc-scrollgrid{
 
-    border-radius:18px;
+    border-radius:22px;
 
     overflow:hidden;
 
-    border:1px solid #ececec;
+    border:1px solid rgba(123,30,43,.08);
 
 }
 
 .fc-theme-standard td,
 .fc-theme-standard th{
 
-    border:1px solid #ececec;
+    border-color:rgba(123,30,43,.08);
 
 }
 
-/* ==========================================
-   Header
-========================================== */
+/*==================================================
+  WEEK DAYS
+==================================================*/
 
 .fc-col-header-cell{
 
-    background:#fafafa;
+    background:var(--cream);
 
     padding:18px 0;
 
-    color:#444;
-
-    font-weight:600;
-
 }
 
-/* ==========================================
-   Day Numbers
-========================================== */
+.fc-col-header-cell-cushion{
 
-.fc-daygrid-day-number{
+    color:var(--burgundy);
 
-    color:#222;
-
-    font-weight:600;
-
-    padding:12px;
-
-    transition:.25s;
-
-}
-
-.fc-daygrid-day:hover{
-
-    background:#fafafa;
-
-}
-
-/* ==========================================
-   Today
-========================================== */
-
-.fc-day-today{
-
-    background:rgba(46,125,50,.08) !important;
-
-}
-
-.fc-day-today .fc-daygrid-day-number{
-
-    color:#2e7d32;
+    text-decoration:none !important;
 
     font-weight:700;
 
 }
 
-/* ==========================================
-   Events
-========================================== */
+/*==================================================
+  DAYS
+==================================================*/
+
+.fc-daygrid-day{
+
+    background:white;
+
+    transition:.25s;
+
+    min-height:120px;
+
+}
+
+.fc-daygrid-day:hover{
+
+    background:#fcfaf7;
+
+}
+
+.fc-daygrid-day-number{
+
+    color:var(--text);
+
+    font-weight:600;
+
+    padding:12px;
+
+    text-decoration:none !important;
+
+}
+
+/*==================================================
+  TODAY
+==================================================*/
+
+.fc-day-today{
+
+    background:rgba(232,207,168,.25) !important;
+
+}
+
+.fc-day-today .fc-daygrid-day-number{
+
+    color:var(--burgundy);
+
+    font-weight:700;
+
+}
+
+/*==================================================
+  EVENTS
+==================================================*/
 
 .fc-event{
 
-    background:#111111 !important;
+    background:var(--burgundy) !important;
 
     border:none !important;
 
-    border-left:4px solid #b22222 !important;
+    border-left:4px solid var(--cream-accent) !important;
 
-    color:#ffffff !important;
+    border-radius:10px !important;
 
-    border-radius:8px !important;
+    color:white !important;
 
-    padding:5px 8px !important;
+    padding:6px 10px !important;
 
     font-size:.85rem;
 
-    font-weight:500;
+    font-weight:600;
 
-    cursor:pointer;
-
-    transition:all .25s ease;
+    transition:.3s;
 
 }
 
 .fc-event:hover{
 
-    transform:translateY(-2px);
+    background:var(--burgundy-dark) !important;
 
-    opacity:.96;
+    transform:translateX(3px);
 
-    box-shadow:0 10px 18px rgba(0,0,0,.12);
+    box-shadow:0 10px 20px rgba(123,30,43,.2);
 
 }
 
-/* ==========================================
-   Time Grid
-========================================== */
+/*==================================================
+  TIME GRID
+==================================================*/
 
 .fc-timegrid-slot{
 
@@ -219,25 +238,27 @@
 
 .fc-timegrid-axis{
 
+    color:var(--text-light);
+
     font-weight:600;
 
-    color:#555;
+}
+
+/*==================================================
+  MORE LINK
+==================================================*/
+
+.fc-daygrid-more-link{
+
+    color:var(--burgundy);
+
+    font-weight:600;
 
 }
 
-/* ==========================================
-   Month View
-========================================== */
-
-.fc-daygrid-day{
-
-    min-height:120px;
-
-}
-
-/* ==========================================
-   Scrollbars
-========================================== */
+/*==================================================
+  SCROLLBAR
+==================================================*/
 
 .fc-scroller::-webkit-scrollbar{
 
@@ -249,7 +270,7 @@
 
 .fc-scroller::-webkit-scrollbar-thumb{
 
-    background:#d4d4d4;
+    background:rgba(123,30,43,.2);
 
     border-radius:999px;
 
@@ -257,21 +278,21 @@
 
 .fc-scroller::-webkit-scrollbar-thumb:hover{
 
-    background:#b5b5b5;
+    background:rgba(123,30,43,.4);
 
 }
 
-/* ==========================================
-   Responsive
-========================================== */
+/*==================================================
+  RESPONSIVE
+==================================================*/
 
 @media(max-width:900px){
 
     .calendar-wrapper{
 
-        padding:20px;
+        padding:22px;
 
-        border-radius:18px;
+        border-radius:22px;
 
     }
 
@@ -285,7 +306,7 @@
 
     .fc-toolbar-title{
 
-        font-size:1.5rem !important;
+        font-size:1.55rem !important;
 
     }
 
@@ -295,7 +316,13 @@
 
     .calendar-wrapper{
 
-        padding:15px;
+        padding:16px;
+
+    }
+
+    .fc-toolbar-chunk{
+
+        width:100%;
 
     }
 
@@ -303,11 +330,7 @@
 
         width:100%;
 
-    }
-
-    .fc-toolbar-chunk{
-
-        width:100%;
+        margin-bottom:8px !important;
 
     }
 

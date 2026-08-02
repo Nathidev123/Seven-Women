@@ -8,7 +8,6 @@ import FormFour from './pages/FormFour';
 import EventPage from './pages/EventPage'
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
-import OpinionPiecePage from './pages/OpinionPiecePage'
 import PeaceInitiative from './pages/PeaceInitiative'
 import Footer from './Components/Footer'
 import ScrollToHash from "./Components/ScrollToHash";
@@ -72,11 +71,6 @@ function App() {
     <Route
     path='/signup'
     element={<SignUp/>}
-    />
-
-    <Route
-    path='/opinion-piece-page'
-    element={<OpinionPiecePage/>}
     />
 
     <Route

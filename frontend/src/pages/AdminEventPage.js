@@ -14,7 +14,9 @@ import {
     FaUserTie,
     FaTshirt,
     FaBullseye,
-    FaBullhorn
+    FaBullhorn,
+    FaEdit,
+    FaSave
 } from "react-icons/fa";
 const AdminEventPage = () => {
 const { id } = useParams()
@@ -86,15 +88,11 @@ const navigate = useNavigate()
 
     return(
         <>
-        <main className="event-page">
         
+        <main className="event-page">
+            
                     {/* HERO */}
-                    <button
-                        className="back-btn"
-                        onClick={() => navigate(-1)}
-                    >
-                        ← Back
-                    </button>
+                    
                     <section className="event-hero">
         
                         <div className="event-hero-content">
@@ -119,19 +117,7 @@ const navigate = useNavigate()
                     <h1>{event.event_name}</h1>
                 )
             }
-                                        <button
-            onClick={async () => {
-
-                if(isEditing){
-                    await handleUpdate(event,event._id)
-                }else{
-                    setIsEditing(true)
-                }
-
-            }}
-            >
-                {isEditing ? "Save Changes" : "Edit"}
-            </button>
+                                        
         
                             {
     isEditing
@@ -173,6 +159,28 @@ const navigate = useNavigate()
                         </div>
         
                     </section>
+                    <button
+    className={`edit-btn ${isEditing ? "save" : "edit"}`}
+    onClick={async () => {
+        if (isEditing) {
+            await handleUpdate(event, event._id)
+        } else {
+            setIsEditing(true)
+        }
+    }}
+>
+    {isEditing ? (
+        <>
+            <FaSave />
+            Save Changes
+        </>
+    ) : (
+        <>
+            <FaEdit />
+            Edit Event
+        </>
+    )}
+</button>
                      <section>
                         {/*To display map*/}
                         <div className="map-container">
@@ -358,7 +366,7 @@ const navigate = useNavigate()
         
                        <h2>About This Event</h2>
 
-{
+{/*
     isEditing ? (
         <textarea
             value={event.event_description}
@@ -373,7 +381,7 @@ const navigate = useNavigate()
     ) : (
         <p>{event.event_description}</p>
     )
-}
+ */}
         
                     </section>
                    

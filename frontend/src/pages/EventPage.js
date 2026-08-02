@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import placeholder from "../assets/placeholder.jpeg";
- 
+import './EventPage.css'
 import {
     FaCalendarAlt,
     FaClock,
@@ -54,12 +54,7 @@ const EventPage = () => {
         <main className="event-page">
 
             {/* HERO */}
-            <button
-                className="back-btn"
-                onClick={() => navigate(-1)}
-            >
-                ← Back
-            </button>
+            
             <section className="event-hero">
 
                 <div className="event-hero-content">
@@ -89,22 +84,35 @@ const EventPage = () => {
                 </div>
 
             </section>
-             <section>
-                {/*To display map*/}
-                <div className="map-container">
-                <p>{event.location}</p>
-                <iframe className="displayMap"
-                title="Event Location"
-                width="65%"
-                height="200"
-                style={{ border: 0}}
-                loading="lazy"
-                allowFullScreen
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(event.location)}`}>
-                
-                </iframe>
-                </div>
-            </section>
+             <section className="map-section">
+
+    <div className="map-header">
+
+        <div>
+            <span className="section-tag">
+                Event Location
+            </span>
+
+            <h2>Where we'll meet</h2>
+
+            <p>{event.location}</p>
+        </div>
+
+    </div>
+
+    <div className="map-container">
+
+        <iframe
+            className="displayMap"
+            title="Event Location"
+            loading="lazy"
+            allowFullScreen
+            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(event.location)}`}
+        />
+
+    </div>
+
+</section>
             
             {/* QUICK INFO */}
 
@@ -197,71 +205,92 @@ const EventPage = () => {
 
             {/* EVENT DETAILS */}
 
-            <section className="event-grid">
+<section className="event-details-section">
 
-                <div className="detail-card">
+    <h2>Event Details</h2>
 
-                    <FaUserTie />
+    <div className="event-details-card">
 
-                    <h3>Organizer</h3>
+        <div className="detail-row">
 
-                    <p>
-                        {event.organizer}
-                    </p>
+            <div className="detail-icon">
+                <FaUserTie />
+            </div>
 
-                </div>
+            <div className="detail-content">
+                <span>Organizer</span>
+                <p>{event.organizer}</p>
+            </div>
 
-                <div className="detail-card">
+        </div>
 
-                    <FaMapMarkerAlt />
+        <div className="divider"></div>
 
-                    <h3>Location</h3>
+        <div className="detail-row">
 
-                    <p>
-                        {event.location}
-                    </p>
+            <div className="detail-icon">
+                <FaMapMarkerAlt />
+            </div>
 
-                </div>
+            <div className="detail-content">
+                <span>Location</span>
+                <p>{event.location}</p>
+            </div>
 
-                <div className="detail-card">
+        </div>
+
+        <div className="divider"></div>
+
+        <div className="detail-row">
+
+            <div className="detail-icon">
                 <FaBullseye />
-                    <h3>
-                        Purpose
-                    </h3>
+            </div>
 
-                    <p>
-                        {event.purpose}
-                    </p>
+            <div className="detail-content">
+                <span>Purpose</span>
+                <p>{event.purpose}</p>
+            </div>
 
-                </div>
+        </div>
 
-                <div className="detail-card">
-                    <FaBullhorn />
-                    <h3>
-                        Audience
-                    </h3>
+        <div className="divider"></div>
 
-                    <p>
-                        {Array.isArray(event.audience)
-                            ? event.audience.join(", ")
-                            : event.audience}
-                    </p>
+        <div className="detail-row">
 
-                </div>
+            <div className="detail-icon">
+                <FaBullhorn />
+            </div>
 
-                <div className="detail-card">
-                    <FaTshirt />
-                    <h3>
-                        Dress Code
-                    </h3>
+            <div className="detail-content">
+                <span>Audience</span>
+                <p>
+                    {Array.isArray(event.audience)
+                        ? event.audience.join(", ")
+                        : event.audience}
+                </p>
+            </div>
 
-                    <p>
-                        {event.dress_code}
-                    </p>
+        </div>
 
-                </div>
+        <div className="divider"></div>
 
-            </section>
+        <div className="detail-row">
+
+            <div className="detail-icon">
+                <FaTshirt />
+            </div>
+
+            <div className="detail-content">
+                <span>Dress Code</span>
+                <p>{event.dress_code}</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
             {/* CONTACT */}
 

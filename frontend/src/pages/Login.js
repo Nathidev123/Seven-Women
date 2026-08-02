@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
+import './loginsignup.css'
 const Login = () => {
 
     
@@ -24,35 +25,75 @@ const Login = () => {
         }
         return(
             <>
+            
+    <div className="login-page">
             <button
-            className="back-btn"
+            className="back-btn1"
             onClick={() => navigate(-1)}
         >
             ← Back
         </button>
-            
-            <form 
-            className="signup" onSubmit={handleSubmit}>
-                <h3>Log In </h3>
+    <div className="login">
 
+        
+
+        <div className="login-badge">
+            Administrator Portal
+        </div>
+
+        <form onSubmit={handleSubmit}>
+
+            <h1>Welcome Back</h1>
+
+            <p>Log in to manage community events</p>
+
+            <div className="form-group">
                 <label>Name</label>
-                <input type="text"
-                onChange={(e) => setName(e.target.value)}
-                value={name}/>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+            </div>
 
+            <div className="form-group">
                 <label>Email</label>
-                <input type="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}/>
-                
-                <label>Password</label>
-                <input type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}/>
-                <button disabled={isLoading} onSubmit={handleSubmit}>Log In</button>
-                {error && <div className="error">{error}</div>}
-            </form>
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>
 
+            <div className="form-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
+
+            <button
+                className="login-button"
+                type="submit"
+                disabled={isLoading}
+            >
+                {isLoading ? "Signing In..." : "Log In"}
+            </button>
+
+            {error && (
+                <div className="error">
+                    {error}
+                </div>
+            )}
+
+        </form>
+
+    </div>
+
+</div>
+            
             </>
         )
     

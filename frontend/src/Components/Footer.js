@@ -37,8 +37,8 @@ const Footer = () => {
                     <h3>Explore</h3>
 
                     <a href="/">Home</a>
-                    <a href="/#events">Events</a>
-                    <a href="/#calendar">Calendar</a>
+                    <a href="/our-work">What We Do</a>
+                    <a href="/peace-initiative">Enyobeni Initiative</a>
 
                 </div>
 
@@ -46,11 +46,9 @@ const Footer = () => {
 
                     <h3>Community</h3>
 
-                    <a href="/#about">About</a>
-                    
-                    <button onClick={handleAdmin}>Admin</button>
-
                     <a href="/get-involved">Get Involved</a>
+
+                    <button onClick={handleAdmin}>Admin</button>
 
                 </div>
 

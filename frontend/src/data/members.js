@@ -276,10 +276,7 @@ const members = [
                 title: "(Audio Described) Change for LGBTQ+ people in South Africa, ft Sibongile Ndashe, human rights lawyer",
                 url: "https://www.youtube.com/embed/PQj1PaQDqDg?si=eP-R_Hnw_q_aX2LX" 
             },
-            {
-                title: "Rethinking Africa 2020 | Independence begins with self-image and the image of others | Koketso Moeti",
-                url: "https://www.youtube.com/embed/xLdsQnIYCCk?si=HuNSEQcj8iu1voP7" 
-            },
+            
             {
                 title: "Change for LGBT people in South Africa ft Sibongile Ndashe, founder and human rights lawyer",
                 url: "https://www.youtube.com/embed/YepYJqoovGA?si=Km3dCwJQB6zhpJrg"
@@ -362,6 +359,10 @@ videos: [
             {
                 title: "Koketso Moeti: Women in Social Justice Ep. 07",
                 url: "https://www.youtube.com/embed/csDkiM-qtqs?si=JLr5GsehZ7XNKKTQ"
+            },
+            {
+                title: "Rethinking Africa 2020 | Independence begins with self-image and the image of others | Koketso Moeti",
+                url: "https://www.youtube.com/embed/xLdsQnIYCCk?si=HuNSEQcj8iu1voP7" 
             },
             {
                 title: "#HowTo Build Campaigns that Change Lives with Koketso Moeti",

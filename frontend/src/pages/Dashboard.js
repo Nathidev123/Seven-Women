@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useEventDetailsContext } from "../hooks/useEventDetailsContext"
 import { useAuthContext } from "../hooks/useAuthContext";
 import { FaCalendarAlt, FaClock, FaBars, FaTimes } from "react-icons/fa";
-import { MdOutlineArchive, MdOutlineSort } from "react-icons/md";
+import { MdOutlineSort } from "react-icons/md";
 import placeholder from '../assets/placeholder.jpeg'
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -38,6 +38,8 @@ const Dashboard = () => {
 
         fetchEventDetails()
     }, [ dispatch ])
+
+    
     //eventdetails will use when displaying 
     console.log(eventdetails)
 
@@ -153,7 +155,7 @@ const upcomingEvents =
                             <FaTimes />
         
                         </button>
-                    <div className="sidebar-links">
+                    <div className="sidebar1-links">
 
                     
                     <Link onClick={() => setMenuOpen(false)} to="/dashboard">Dashboard</Link>
@@ -166,19 +168,25 @@ const upcomingEvents =
 
         {menuOpen && (
                 <div
-                    className="overlay"
+                    className="overlay1"
                     onClick={() => setMenuOpen(false)}
                 />
             )}
             <div className="dashboard-header">
-                
-                <h1>{greeting} {user?.name}</h1>
-                <p>
+    <div>
+        <span className="dashboard-subtitle">
+            ADMIN DASHBOARD
+        </span>
+
+        <h1>{greeting}, {user?.name}</h1>
+
+        <p>
             You have <strong>{upcomingEvents}</strong> upcoming events,
-            <strong> {draftEvents}</strong> drafts waiting to be published,
-            and <strong>{publishedEvents}</strong> published events.
+            <strong> {draftEvents}</strong> drafts waiting to be published and
+            <strong> {publishedEvents}</strong> published events.
         </p>
-            </div>
+    </div>
+</div>
 
             
 
@@ -339,7 +347,7 @@ const upcomingEvents =
                 
 
                     <button onClick={(event) => handleArchive(event, eventdetail._id)}>
-                        <MdOutlineArchive />
+                        Archive
 
                     </button>
 

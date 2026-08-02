@@ -16,9 +16,7 @@ const Archives = () => {
 
     const navigate = useNavigate()
 
-    const handleBackBtn = () => {
-        navigate('/dashboard')
-    }
+    
 
     
     useEffect(() => {
@@ -97,15 +95,7 @@ const archivedEvents =
     return(
 
         <>
-        <button
-            className="back-btn"
-            onClick={handleBackBtn}
-        >
-            ← Back
-        </button>
-        
-            <h1>Archived Events</h1>
-
+       
             <div className="dash-container">
 
     {archivedEvents.length === 0 ? (

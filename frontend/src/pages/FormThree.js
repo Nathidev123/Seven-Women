@@ -49,7 +49,12 @@ const navigate = useNavigate()
         <form>
 
             <div className="form-header">
-                <span className="step">Step 3 of 4</span>
+                <div className="form-progress">
+                <div
+                    className="progress-fill"
+                    style={{ width: "75%" }}
+                ></div>
+            </div>
 
                 <h1>
                     Schedule your event.

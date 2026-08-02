@@ -51,7 +51,7 @@ const EnyobeniInitiative = () => {
                     </p>
 
                     <button
-                        className="mission-btn"
+                        className="mission-btn1"
                         onClick={handleClick}
                     >
                         Explore the Initiative →

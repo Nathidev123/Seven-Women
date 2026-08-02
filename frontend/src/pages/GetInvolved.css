@@ -24,17 +24,15 @@ body{
 ================================================== */
 
 @keyframes heroReveal{
-
     from{
         opacity:0;
-        transform:translateY(35px) scale(.97);
+        transform:translateY(20px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0) scale(1);
+        transform:none;
     }
-
 }
 
 body{
@@ -105,7 +103,8 @@ body{
     padding-bottom:12px;
 
     opacity:0;
-    animation:heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+    animation: heroReveal .9s cubic-bezier(.22,1,.36,1) forwards;
+will-change: auto; 
 }
 
 .ways-involved h1:first-child{
@@ -464,4 +463,43 @@ body{
         padding:25px;
     }
 
+}/*
+.header h1,
+.header p,
+.ways-involved h1,
+.ways-involved p{
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+.donate-div h1,
+.donate-div p,
+.involved h1,
+.involved p{
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+*/
+.ways-involved-section{
+    position: relative;
+    z-index: 1;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+}
+
+.sidebar{
+    position: fixed;
+    z-index: 100000;
+}
+
+.overlay{
+    position: fixed;
+    z-index: 99999;
 }

@@ -1,4 +1,4 @@
-import eightFigures from "../assets/8_FIGURES.png";
+import eight from '../assets/horizontaleight.png';
 
 const VisionMission = () => {
 
@@ -33,28 +33,11 @@ const VisionMission = () => {
                 <div className="conversation-image">
 
                     <img
-                        src={eightFigures}
+                        src={eight}
                         alt="Building Peace Through Dialogue"
                     />
-
-                    <div className="conversation-centre">
-
-                        <span className="conversation-label">
-                            EVERY VOICE MATTERS
-                        </span>
-
-                        <h2>
-                            Building Peace
-                        </h2>
-
-                        <p>
-                            Through Dialogue,<br />
-                            Justice & Community Action
-                        </p>
-
                     </div>
-
-                </div>
+                   
 
             </div>
 

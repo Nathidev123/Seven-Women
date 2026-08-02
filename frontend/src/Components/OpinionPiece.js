@@ -1,39 +1,48 @@
-import { useNavigate } from "react-router-dom"
 const OpinionPiece = () => {
-const navigate = useNavigate() 
 
     const handleClick = () => {
-        navigate('/opinion-piece-page')
-    }
-    return(<>
-       <section className="opinion-piece">
+        window.open("/documents/opinion-piece.pdf", "_blank");
+    };
 
-            <div className="opinion-content">
+    return (
 
-                <div className="opinion-text">
+        <section className="opinion-piece">
 
-                    <span className="section-tag">Peace Initiative</span>
-                    <h2>Promoting Peace Through Community</h2>
+            <div className="opinion-wrapper">
 
-                    <p>
-                        We all want to see a stronger, safer and more united South Africa. 
-                        While we have every right to raise our voices against injustice, 
-                        unemployment and inequality, we also have a shared responsibility 
-                        to protect our communities and our future. 
-                        <br></br>
-                        This opinion piece explores how we can demand accountability, pursue meaningful 
-                        change and stand for justice without allowing anger to turn into destruction. 
-                         Together, we can build the South Africa we want by choosing peace, unity 
-                         and collective action.
+                <div className="opinion-badge">
+                    Peace Initiative
+                </div>
 
-                    </p>
-                    <button className="mission-btn"
-                    onClick={handleClick}>
-                    Explore the Full Article →</button>
-                 </div> 
-                </div> 
-                </section> 
-    </>)
-}
+                <h2>
+                    An Invitation To Choose Peace
+                </h2>
 
-export default OpinionPiece
+                <p className="opinion-lead">
+                    Every generation is remembered by the choices it makes during
+                    difficult moments. This opinion piece reflects on how South
+                    Africans can pursue justice, accountability and meaningful
+                    change while protecting the communities we all call home.
+                </p>
+
+                <blockquote className="opinion-quote">
+                    "Peace is not silence. Peace is choosing dialogue over
+                    destruction, courage over fear, and unity over division."
+                </blockquote>
+
+                <button
+                    className="opinion-btn"
+                    onClick={handleClick}
+                >
+                    Read The Full Opinion Piece →
+                </button>
+
+            </div>
+
+        </section>
+
+    );
+
+};
+
+export default OpinionPiece;

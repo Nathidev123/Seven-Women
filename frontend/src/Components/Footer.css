@@ -1,243 +1,165 @@
 /* ==================================================
-   Footer.css
-   ================================================== */
+   FOOTER
+================================================== */
 
-.footer{
-
-    background:#111111;
-
-    color:#ffffff;
-
-    margin-top:0;
-
-
-    overflow:hidden;
-
+:root{
+    --burgundy:#7B1E2B;
+    --burgundy-dark:#5A1320;
+    --cream:#F8F4EE;
+    --cream-accent:#E8CFA8;
+    --text:#222;
+    --shadow:0 20px 45px rgba(0,0,0,.12);
+    --radius:28px;
 }
 
-/* ==========================================
-   Layout
-========================================== */
+.footer{
+    position:relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    margin: 0;
+    width: 100%;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top right,
+        rgba(232,207,168,.12),
+        transparent 45%),
+        linear-gradient(135deg,
+        var(--burgundy),
+        var(--burgundy-dark));
+
+    color:white;
+
+    
+    box-shadow:var(--shadow);
+}
+
+/* Decorative pattern */
+
+.footer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,255,255,.04) 1.5px,
+        transparent 1.5px);
+
+    background-size:34px 34px;
+
+    opacity:.6;
+    pointer-events:none;
+}
 
 .footer-content{
+    position:relative;
+    z-index:2;
 
-    max-width:1250px;
-
-    margin:auto;
-
-    padding:80px 35px 60px;
+    width:min(1250px,92%);
+    margin:0 auto;
 
     display:grid;
-
     grid-template-columns:2fr 1fr 1fr;
 
     gap:70px;
 
+    padding:65px 0;
 }
 
-/* ==========================================
-   Brand
-========================================== */
-
 .footer-brand h2{
-
     font-size:2rem;
-
-    font-weight:700;
-
-    letter-spacing:-.5px;
-
     margin-bottom:18px;
-
-    color:#ffffff;
-
+    color:white;
 }
 
 .footer-brand p{
-
-    color:#b5b5b5;
-
-    line-height:1.9;
-
-    max-width:430px;
-
-}
-
-/* ==========================================
-   Sections
-========================================== */
-
-.footer-section{
-
-    display:flex;
-
-    flex-direction:column;
-
+    max-width:480px;
+    color:rgba(255,255,255,.82);
+    line-height:1.8;
 }
 
 .footer-section h3{
-
     margin-bottom:22px;
-
+    color:var(--cream-accent);
     font-size:1.05rem;
-
-    font-weight:600;
-
-    color:#ffffff;
-
-    position:relative;
-
+    letter-spacing:.5px;
 }
 
-.footer-section h3::after{
-
-    content:"";
-
-    display:block;
-
-    width:45px;
-
-    height:3px;
-
-    margin-top:10px;
-
-    border-radius:999px;
-
-    background:#b22222;
-
+.footer-section{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
 }
 
-/* ==========================================
-   Links
-========================================== */
-
-.footer-section a{
-
-    color:#b5b5b5;
+.footer-section a,
+.footer-section button{
 
     text-decoration:none;
+    color:rgba(255,255,255,.82);
 
-    margin-bottom:14px;
+    background:none;
+    border:none;
 
-    transition:all .25s ease;
+    width:fit-content;
 
+    cursor:pointer;
+
+    font-size:1rem;
+
+    transition:.35s ease;
 }
 
-.footer-section a:hover{
+.footer-section a:hover,
+.footer-section button:hover{
 
-    color:#ffffff;
-
-    transform:translateX(6px);
-
+    color:white;
+    transform:translateX(8px);
 }
-
-/* ==========================================
-   Bottom
-========================================== */
 
 .footer-bottom{
 
-    border-top:1px solid rgba(255,255,255,.08);
+    position:relative;
+    z-index:2;
 
-    padding:26px 30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    text-align:center;
+    padding:25px;
 
+    border-top:1px solid rgba(255,255,255,.12);
+
+    color:rgba(255,255,255,.65);
+
+    font-size:.95rem;
 }
-
-.footer-bottom p{
-
-    color:#8b8b8b;
-
-    font-size:.9rem;
-
-    letter-spacing:.2px;
-
-}
-
-/* ==========================================
-   Optional Accent Line
-========================================== */
-
-.footer::before{
-
-    content:"";
-
-    display:block;
-
-    width:100%;
-
-    height:4px;
-
-    background:linear-gradient(
-        90deg,
-        #b22222 0%,
-        #2e7d32 50%,
-        #b22222 100%
-    );
-
-}
-
-/* ==========================================
-   Responsive
-========================================== */
-
 @media(max-width:900px){
 
-    .footer{
+.footer-content{
 
-        border-top-left-radius:24px;
-        border-top-right-radius:24px;
-
-    }
-
-    .footer-content{
-
-        grid-template-columns:1fr;
-
-        gap:45px;
-
-        text-align:center;
-
-        padding:60px 25px 45px;
-
-    }
-
-    .footer-brand p{
-
-        max-width:100%;
-
-        margin:auto;
-
-    }
-
-    .footer-section{
-
-        align-items:center;
-
-    }
-
-    .footer-section h3::after{
-
-        margin-left:auto;
-        margin-right:auto;
-
-    }
-
+    grid-template-columns:1fr;
+    gap:45px;
+    padding:45px 30px;
 }
 
-@media(max-width:600px){
+.footer-brand{
+    text-align:center;
+}
 
-    .footer-content{
+.footer-brand p{
+    margin:auto;
+}
 
-        padding:50px 20px 35px;
+.footer-section{
+    align-items:center;
+}
 
-    }
-
-    .footer-brand h2{
-
-        font-size:1.7rem;
-
-    }
+.footer-bottom{
+    text-align:center;
+    padding:20px;
+}
 
 }

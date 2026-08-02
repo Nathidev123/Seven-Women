@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import {  FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const Navbar = () => {
-
+    const navigate = useNavigate()
     const { logout } = useLogout();
     const { user } = useAuthContext();
 
@@ -15,6 +15,7 @@ const Navbar = () => {
     const handleLogout = () => {
         logout();
         setMenuOpen(false);
+        navigate('/')  
     };
 
     return (
@@ -55,6 +56,12 @@ const Navbar = () => {
                 </button>
 
             </div>
+            {menuOpen && (
+                <div
+                    className="overlay"
+                    onClick={() => setMenuOpen(false)}
+                />
+            )}
 
             <div className={`sidebar ${menuOpen ? "active" : ""}`}>
 
@@ -66,24 +73,28 @@ const Navbar = () => {
                     <FaTimes />
 
                 </button>
+                <div className="sidebar-brand">
+                <h2>Eight Women</h2>
+                <p>Building Peace Together</p>
+            </div>
 
-                <Link onClick={() => setMenuOpen(false)} to="/">Home</Link>
+                <Link onClick={() => setMenuOpen(false)} to="/#members">Home</Link>
 
-                <Link onClick={() => setMenuOpen(false)} to="/events">Events</Link>
+                <Link onClick={() => setMenuOpen(false)} to="/#events">Events</Link>
 
-                <Link onClick={() => setMenuOpen(false)} to="/calendar">Calendar</Link>
+                <Link onClick={() => setMenuOpen(false)} to="/get-involved">Get Involved</Link>
 
-                <Link onClick={() => setMenuOpen(false)} to="/contact">Contact</Link>
+                <Link onClick={() => setMenuOpen(false)} to="/our-work">What We Do</Link>
 
                 {!user && (
                     <>
                         <Link onClick={() => setMenuOpen(false)} to="/login">
-                            Login
+                            Admin
                         </Link>
 
-                        <Link onClick={() => setMenuOpen(false)} to="/signup">
+                        {/*<Link onClick={() => setMenuOpen(false)} to="/signup">
                             Sign Up
-                        </Link>
+                        </Link>*/}
                     </>
                 )}
 
@@ -112,12 +123,7 @@ const Navbar = () => {
 
             </div>
 
-            {menuOpen && (
-                <div
-                    className="overlay"
-                    onClick={() => setMenuOpen(false)}
-                />
-            )}
+            
 
         </header>
 
