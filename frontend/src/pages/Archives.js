@@ -54,7 +54,10 @@ const Archives = () => {
             return
         }
         
-        const json = await response.json()
+        const json = await response.json();
+
+        console.log(response.status);
+        console.log(json);
         //now frontend
         if(response.ok){
             dispatch({type: 'DELETE_EventDetails', payload: json})
