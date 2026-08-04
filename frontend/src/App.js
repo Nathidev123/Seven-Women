@@ -20,12 +20,14 @@ import GetInvolved from './pages/GetInvolved';
 import OurWork from './pages/OurWork';
 import GetInvolvedComponent from './Components/GetInvolvedComponent';
 
+
 function App() {
+ 
   return (
 
     <div className="App">
     <BrowserRouter>
-    <Navbar />
+    <Navbar />    
     <div className='pages'>
 
     <ScrollToTop />
@@ -85,7 +87,7 @@ function App() {
 
     <Route
     path='/dashboard'
-    element={<Dashboard/>}
+    element={<Dashboard/> }
     />
 
     <Route

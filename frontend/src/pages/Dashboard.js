@@ -25,7 +25,16 @@ const Dashboard = () => {
     const [sortOrder, setSortOrder] = useState('newest')
     useEffect(() => {
         const fetchEventDetails = async () => {
-            const response = await fetch('/api/mainroutes/admin')
+            if(!user){
+                //console.log("Dashboard user:", user)
+                
+                return//now the fetch will not run if user is not logged in
+            }
+            const response = await fetch('/api/mainroutes/admin', {
+                headers: {
+                    'Authorization': `Bearer ${user.token}`
+                }
+            })
             const json = await response.json()
 
             console.log(response.status)
@@ -37,7 +46,7 @@ const Dashboard = () => {
         }
 
         fetchEventDetails()
-    }, [ dispatch ])
+    }, [ dispatch, user, navigate ])
 
     
     //eventdetails will use when displaying 

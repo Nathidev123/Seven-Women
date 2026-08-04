@@ -1,9 +1,9 @@
 import eight from '../assets/horizontaleight.png';
-
+import { FaComments } from "react-icons/fa";
 const VisionMission = () => {
 
     return (
-
+        
         <section className="mission-section">
 
             <div className="mission-header">
@@ -40,65 +40,52 @@ const VisionMission = () => {
                    
 
             </div>
+            
+               <h1 className="vm-heading">Vision & Mission</h1>
 
+        <div className="conversation-flow">
 
-            <div className="mission-grid">
+            <div className="speech">
 
-                <article className="purpose-card mission-card">
+                <span className="speech-tag">01</span>
 
-                    <div className="card-top">
+                <h2>Our Mission</h2>
 
-                        <span className="card-number">
-                            01
-                        </span>
-
-                        <h2>
-                            Our Mission
-                        </h2>
-
-                    </div>
-
-                    <p>
-                        To encourage South Africans to transform anger into
-                        constructive action by promoting peaceful protest,
-                        collective safety, accountability and community-led
-                        peacebuilding while preventing violence and protecting
-                        lives.
-                    </p>
-
-
-                </article>
-
-
-                <article className="purpose-card vision-card">
-
-                    <div className="card-top">
-
-                        <span className="card-number">
-                            02
-                        </span>
-
-                        <h2>
-                            Our Vision
-                        </h2>
-
-                    </div>
-
-                    <p>
-                        A South Africa where justice and peace coexist; where
-                        people's grievances are heard, communities are safe,
-                        dignity is protected, leaders are accountable and
-                        social change is achieved without violence.
-                    </p>
-
-                    
-
-                </article>
+                <p>
+                    To encourage South Africans to transform anger into
+                    constructive action by promoting peaceful protest,
+                    collective safety, accountability and community-led
+                    peacebuilding while preventing violence and protecting
+                    lives.
+                </p>
 
             </div>
 
-        </section>
+            <div className="dialogue-line">
+                <div className="dialogue-circle">
+                     <FaComments />
+                </div>
+            </div>
 
+            <div className="speech">
+
+                <span className="speech-tag">02</span>
+
+                <h2>Our Vision</h2>
+
+                <p>
+                    A South Africa where justice and peace coexist; where
+                    people's grievances are heard, communities are safe,
+                    dignity is protected, leaders are accountable and
+                    social change is achieved without violence.
+                </p>
+
+            </div>
+
+        </div>
+
+        
+        </section>
     )
 
 }

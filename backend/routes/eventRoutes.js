@@ -40,8 +40,8 @@ const upload = multer({ storage });
 
 //routes
 router.get('/', getAllEvents)
-router.get('/admin', getAllDashEvents)
-
+router.get('/admin', requireAuth, getAllDashEvents)
+//proteted dash route as well
 router.get('/:id', getEvent)
 
 

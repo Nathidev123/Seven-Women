@@ -81,11 +81,12 @@
 }
 
 
-
 .eight-div img{
 
     width:100%;
-
+    height: auto;
+    aspect-ratio: 4 / 5; /*fixed the jumping image by adding aspect
+    ratio and height auto*/
     display:block;
 
     border-radius:28px;
