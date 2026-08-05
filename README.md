@@ -228,14 +228,12 @@ Planned enhancements include:
 
 * Event registration system
 * Online donations
-* Newsletter subscription
 * Search functionality
 * Event filtering
 * Blog and news management
 * Analytics dashboard
 * CMS for additional website content
 * Dark mode
-* Internationalisation (i18n)
 
 ---
 
